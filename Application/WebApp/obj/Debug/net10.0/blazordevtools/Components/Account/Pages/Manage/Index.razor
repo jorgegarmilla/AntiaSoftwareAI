@@ -1,0 +1,96 @@
+﻿@page "/Account/Manage"
+
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Identity
+@using WebApp.Data
+
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject IdentityRedirectManager RedirectManager
+
+@* Injected by BlazorDeveloperTools (Dev-only) - Open *@
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt1fdf858a" data-blazordevtools-component="Index" data-blazordevtools-file="Components/Account/Pages/Manage/Index.razor" style="display:none!important"></span>
+<PageTitle>Profile</PageTitle>
+
+<h3>Profile</h3>
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt7b56dfb2" data-blazordevtools-component="StatusMessage" data-blazordevtools-file="Components/Account/Pages/Manage/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><StatusMessage /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt7b56dfb2" style="display:none!important"></span>
+
+<div class="row">
+    <div class="col-xl-6">
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4f07ed3b" data-blazordevtools-component="EditForm" data-blazordevtools-file="Components/Account/Pages/Manage/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><EditForm Model="Input" FormName="profile" OnValidSubmit="OnValidSubmitAsync" method="post">
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt10f1d953" data-blazordevtools-component="DataAnnotationsValidator" data-blazordevtools-file="Components/Account/Pages/Manage/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><DataAnnotationsValidator /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt10f1d953" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt7350b848" data-blazordevtools-component="ValidationSummary" data-blazordevtools-file="Components/Account/Pages/Manage/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationSummary class="text-danger" role="alert" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt7350b848" style="display:none!important"></span>
+            <div class="form-floating mb-3">
+                <input type="text" value="@username" id="username" class="form-control" placeholder="Choose your username." disabled />
+                <label for="username" class="form-label">Username</label>
+            </div>
+            <div class="form-floating mb-3">
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt1f474ef2" data-blazordevtools-component="InputText" data-blazordevtools-file="Components/Account/Pages/Manage/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputText @bind-Value="Input.PhoneNumber" id="Input.PhoneNumber" class="form-control" placeholder="Enter your phone number" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt1f474ef2" style="display:none!important"></span>
+                <label for="Input.PhoneNumber" class="form-label">Phone number</label>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5efabfd0" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Components/Account/Pages/Manage/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage For="() => Input.PhoneNumber" class="text-danger" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5efabfd0" style="display:none!important"></span>
+            </div>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+        </EditForm><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4f07ed3b" style="display:none!important"></span>
+    </div>
+</div>
+
+@code {
+    private ApplicationUser? user;
+    private string? username;
+    private string? phoneNumber;
+
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Input ??= new();
+
+        user = await UserManager.GetUserAsync(HttpContext.User);
+        if (user is null)
+        {
+            RedirectManager.RedirectToInvalidUser(UserManager, HttpContext);
+            return;
+        }
+
+        username = await UserManager.GetUserNameAsync(user);
+        phoneNumber = await UserManager.GetPhoneNumberAsync(user);
+
+        Input.PhoneNumber ??= phoneNumber;
+    }
+
+    private async Task OnValidSubmitAsync()
+    {
+        if (user is null)
+        {
+            RedirectManager.RedirectToInvalidUser(UserManager, HttpContext);
+            return;
+        }
+
+        if (Input.PhoneNumber != phoneNumber)
+        {
+            var setPhoneResult = await UserManager.SetPhoneNumberAsync(user, Input.PhoneNumber);
+            if (!setPhoneResult.Succeeded)
+            {
+                RedirectManager.RedirectToCurrentPageWithStatus("Error: Failed to set phone number.", HttpContext);
+                return;
+            }
+        }
+
+        await SignInManager.RefreshSignInAsync(user);
+        RedirectManager.RedirectToCurrentPageWithStatus("Your profile has been updated", HttpContext);
+    }
+
+    private sealed class InputModel
+    {
+        [Phone]
+        [Display(Name = "Phone number")]
+        public string? PhoneNumber { get; set; }
+    }
+}
+
+<span data-blazordevtools-marker="close" data-blazordevtools-id="bdt1fdf858a" style="display:none!important"></span>
+@* Injected by BlazorDeveloperTools (Dev-only) - Close *@

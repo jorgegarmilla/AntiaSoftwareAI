@@ -1,0 +1,100 @@
+﻿@page "/Account/Manage/RenamePasskey/{Id}"
+
+@using WebApp.Data
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.AspNetCore.Identity
+@using System.Buffers.Text
+
+@inject UserManager<ApplicationUser> UserManager
+@inject IdentityRedirectManager RedirectManager
+
+@* Injected by BlazorDeveloperTools (Dev-only) - Open *@
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt276c1090" data-blazordevtools-component="RenamePasskey" data-blazordevtools-file="Components/Account/Pages/Manage/RenamePasskey.razor" style="display:none!important"></span>
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4b44eaf0" data-blazordevtools-component="EditForm" data-blazordevtools-file="Components/Account/Pages/Manage/RenamePasskey.razor" data-blazordevtools-nested="true" style="display:none!important"></span><EditForm Model="Input" OnValidSubmit="Rename" FormName="rename-passkey" method="post">
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2315c8e2" data-blazordevtools-component="DataAnnotationsValidator" data-blazordevtools-file="Components/Account/Pages/Manage/RenamePasskey.razor" data-blazordevtools-nested="true" style="display:none!important"></span><DataAnnotationsValidator /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2315c8e2" style="display:none!important"></span>
+    @if (passkey?.Name is { } name)
+    {
+        <h4>Enter a new name for your "@name" passkey</h4>
+    }
+    else
+    {
+        <h4>Enter a name for your passkey</h4>
+    }
+    <hr />
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt7ea2e240" data-blazordevtools-component="ValidationSummary" data-blazordevtools-file="Components/Account/Pages/Manage/RenamePasskey.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationSummary class="text-danger" role="alert" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt7ea2e240" style="display:none!important"></span>
+    <div class="form-floating mb-3">
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt42003225" data-blazordevtools-component="InputText" data-blazordevtools-file="Components/Account/Pages/Manage/RenamePasskey.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputText @bind-Value="Input.Name" id="Input.Name" class="form-control" aria-required="true" placeholder="My passkey" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt42003225" style="display:none!important"></span>
+        <label for="Input.Name" class="form-label">Passkey name</label>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt368f9f42" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Components/Account/Pages/Manage/RenamePasskey.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage For="() => Input.Name" class="text-danger" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt368f9f42" style="display:none!important"></span>
+    </div>
+    <div>
+        <button type="submit" class="w-100 btn btn-lg btn-primary">Continue</button>
+    </div>
+</EditForm><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4b44eaf0" style="display:none!important"></span>
+
+@code {
+    private ApplicationUser? user;
+    private UserPasskeyInfo? passkey;
+
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    [Parameter]
+    public string? Id { get; set; }
+
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Input ??= new();
+
+        user = (await UserManager.GetUserAsync(HttpContext.User))!;
+        if (user is null)
+        {
+            RedirectManager.RedirectToInvalidUser(UserManager, HttpContext);
+            return;
+        }
+
+        byte[] credentialId;
+        try
+        {
+            credentialId = Base64Url.DecodeFromChars(Id);
+        }
+        catch (FormatException)
+        {
+            RedirectManager.RedirectToWithStatus("Account/Manage/Passkeys", "Error: The specified passkey ID had an invalid format.", HttpContext);
+            return;
+        }
+
+        passkey = await UserManager.GetPasskeyAsync(user, credentialId);
+        if (passkey is null)
+        {
+            RedirectManager.RedirectToWithStatus("Account/Manage/Passkeys", "Error: The specified passkey could not be found.", HttpContext);
+            return;
+        }
+    }
+
+    private async Task Rename()
+    {
+        passkey!.Name = Input.Name;
+        var result = await UserManager.AddOrUpdatePasskeyAsync(user!, passkey);
+        if (!result.Succeeded)
+        {
+            RedirectManager.RedirectToWithStatus("Account/Manage/Passkeys", "Error: The passkey could not be updated.", HttpContext);
+            return;
+        }
+
+        RedirectManager.RedirectToWithStatus("Account/Manage/Passkeys", "Passkey updated successfully.", HttpContext);
+    }
+
+    private sealed class InputModel
+    {
+        [Required]
+        [StringLength(200, ErrorMessage = "Passkey names must be no longer than {1} characters.")]
+        public string Name { get; set; } = "";
+    }
+}
+
+<span data-blazordevtools-marker="close" data-blazordevtools-id="bdt276c1090" style="display:none!important"></span>
+@* Injected by BlazorDeveloperTools (Dev-only) - Close *@

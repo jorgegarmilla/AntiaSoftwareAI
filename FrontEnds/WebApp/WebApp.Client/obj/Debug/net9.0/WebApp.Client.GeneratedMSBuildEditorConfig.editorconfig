@@ -1,0 +1,143 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net9.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v9.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = WebApp.Client
+build_property.RootNamespace = WebApp.Client
+build_property.ProjectDir = C:\jorge.garmilla\Proyectos\AntiaSoftware\FrontEnds\WebApp\WebApp.Client\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\jorge.garmilla\Proyectos\AntiaSoftware\FrontEnds\WebApp\WebApp.Client
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 9.0
+build_property.EnableCodeStyleSeverity = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Components/_GenericRenderFragment.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfR2VuZXJpY1JlbmRlckZyYWdtZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Components/_InputDoubleFormatted.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW5wdXREb3VibGVGb3JtYXR0ZWQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Components/_InputTextTriggerBindingOnInput.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW5wdXRUZXh0VHJpZ2dlckJpbmRpbmdPbklucHV0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Components/_Modal.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Components/_NonGenericRenderFragment.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfTm9uR2VuZXJpY1JlbmRlckZyYWdtZW50LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Components/_PageTitle.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfUGFnZVRpdGxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Components/_Rol.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfUm9sLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Components/_SelectList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfU2VsZWN0TGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Components/_SelectSearchList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfU2VsZWN0U2VhcmNoTGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Layout/_Footer.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XF9Gb290ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Layout/_Header.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XF9IZWFkZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Layout/_Sidebar.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XF9TaWRlYmFyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Pages/AttributeSplatting.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXR0cmlidXRlU3BsYXR0aW5nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Pages/Environment.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRW52aXJvbm1lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Pages/Form.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Pages/Initializator.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5pdGlhbGl6YXRvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Pages/InitializatorTwo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5pdGlhbGl6YXRvclR3by5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Pages/Jobs.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSm9icy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Pages/Modal.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Pages/PageComponentTree.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUGFnZUNvbXBvbmVudFRyZWUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Pages/RenderFragmentBasic.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVuZGVyRnJhZ21lbnRCYXNpYy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Pages/RenderFragmentGeneric.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVuZGVyRnJhZ21lbnRHZW5lcmljLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Pages/RenderFragmentNonGeneric.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUmVuZGVyRnJhZ21lbnROb25HZW5lcmljLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Um91dGVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Components/_CSSsample.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfQ1NTc2FtcGxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-c2rzx5gutt
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ibe3l8gndh
+
+[C:/jorge.garmilla/Proyectos/AntiaSoftware/FrontEnds/WebApp/WebApp.Client/Pages/CSS.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ1NTLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-roiqpoa01g

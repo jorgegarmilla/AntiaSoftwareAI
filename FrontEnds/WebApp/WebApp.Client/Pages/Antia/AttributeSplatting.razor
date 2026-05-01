@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@inherits AntiaComponentBase
+@page "/AttributeSplatting"
+@attribute [Authorize]
+
+<_PageTitle InputAttributesHeader="AdditionalAttributesList" Title="Attribute Splatting" BreadcrumbMenuGroupName="Template" BreadcrumbMenuOptionName="Attribute Splatting"></_PageTitle>
+
+Mirar en el título de la página el borde azul que se ha añadido mediante Attribute Splatting.
+
+@code {
+    private string Texto { get; set; } 
+
+    public Dictionary<string, object> AdditionalAttributesList = new Dictionary<string, object>{
+            { "style", "border: 2px solid blue;" }
+        };
+
+    protected override async Task OnInitializedAsync()
+    {
+        //Texto = "Texto inicial";
+
+   
+    }
+
+}

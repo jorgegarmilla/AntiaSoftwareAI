@@ -1,0 +1,9 @@
+﻿div {
+    border: 1px solid red;
+}
+
+
+
+::deep input {
+    border: 1px solid blue;
+}

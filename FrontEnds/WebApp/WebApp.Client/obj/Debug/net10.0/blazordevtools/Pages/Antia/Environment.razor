@@ -1,0 +1,35 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Authorization
+@page "/antia/environment"
+@inject NavigationManager Navigation
+@attribute [Authorize]
+@inherits AntiaComponentBase
+
+@* Injected by BlazorDeveloperTools (Dev-only) - Open *@
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt48763af2" data-blazordevtools-component="Environment" data-blazordevtools-file="Pages/Antia/Environment.razor" style="display:none!important"></span>
+<_PageTitle Title="Environment" BreadcrumbMenuGroupName="Template" BreadcrumbMenuOptionName="Environment"></_PageTitle>
+
+<br />
+<label><strong>Environment Name from Cascading Parameter:</strong> @EnvironmentName</label>
+<br />
+<br />
+
+@foreach (Pais pais in PaisesList)
+{
+    <label>@pais.Nombre</label>
+    <br />
+}
+
+@code {
+
+    [CascadingParameter]
+    private List<Pais> PaisesList { get; set; }
+
+
+    [CascadingParameter(Name = "EnvironmentName")]
+    private string EnvironmentName { get; set; }
+
+}
+
+<span data-blazordevtools-marker="close" data-blazordevtools-id="bdt48763af2" style="display:none!important"></span>
+@* Injected by BlazorDeveloperTools (Dev-only) - Close *@

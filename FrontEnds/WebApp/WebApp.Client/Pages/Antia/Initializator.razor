@@ -1,0 +1,61 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IServiceProvider _ServiceProvider
+@inherits AntiaComponentBase
+@page "/initializator"
+@attribute [Authorize]
+
+<_PageTitle Title="Initializator" BreadcrumbMenuGroupName="Template" BreadcrumbMenuOptionName="Initializator"></_PageTitle>
+
+<p role="status">Current count: @currentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+<br />
+<br />
+@if (jobModelViews != null)
+{
+    foreach (var job in jobModelViews)
+    {
+        @job.Description
+        <br />
+    }
+}
+else
+{
+    <label>Cargando...</label>
+}
+
+
+
+@code {
+    private int currentCount;
+    private IApiProxy apiProxy;
+    List<JobModelView> jobModelViews = null;
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // OnInitializedAsync: para obtener datos de una API porque ocurre antes del render inicial del componente.
+
+        apiProxy = _ServiceProvider.GetService(typeof(IApiProxy)) as ApiProxy;
+        await Task.Delay(1000); // Simulate asynchronous loading to demonstrate a loading indicator
+        jobModelViews = await apiProxy.GetJobs();
+
+    }  
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender == true)
+        {
+            // OnAfterRenderAsync: apropiado para tareas relacionadas con la manipulación del DOM o integración con bibliotecas de JavaScript después del renderizado.
+
+            // StateHasChanged:
+            // Fuerza un nuevo render, ejecuta de nuevo OnAfterRenderAsync (pero firstRender = false)
+            // se dispara automaticamente después de OnParametersSet, OnInitializedAsync, eventos como pulsar un botón pulsar botón
+            // en este caso es necesario para que se haga un nuevo render y desaparezca "Cargando..." y se muestren los países.
+        }
+    }
+}

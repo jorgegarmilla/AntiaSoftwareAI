@@ -1,0 +1,358 @@
+﻿@page "/Account/Login"
+
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.ApplicationInsights
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Identity
+@using WebApp.Data
+
+@layout WebApp.Components.EmptyLayout
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject ILogger<Login> Logger
+@inject NavigationManager NavigationManager
+@inject IdentityRedirectManager RedirectManager
+@inject TelemetryClient telemetryClient
+
+@* Injected by BlazorDeveloperTools (Dev-only) - Open *@
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2113e52f" data-blazordevtools-component="Login" data-blazordevtools-file="Components/Pages/Login.razor" style="display:none!important"></span>
+<PageTitle>Antia Log in</PageTitle>
+
+
+<div class="min-h-screen flex items-center justify-center background-gradient">
+
+    <div class="p-6 pt-0" style="width: 450px">
+
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt75b0a8c4" data-blazordevtools-component="EditForm" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><EditForm EditContext="editContext" method="post" OnSubmit="LoginUser" FormName="login">
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3808ffa3" data-blazordevtools-component="DataAnnotationsValidator" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><DataAnnotationsValidator /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3808ffa3" style="display:none!important"></span>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt735a30f4" data-blazordevtools-component="BbCard" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCard class="" >
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt7a7ab39a" data-blazordevtools-component="BbCardHeader" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardHeader>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt099f8418" data-blazordevtools-component="BbCardTitle" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardTitle class="text-2xl">Login to your account</BbCardTitle><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt099f8418" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0ee777bb" data-blazordevtools-component="BbCardDescription" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardDescription>Enter your email below to login to your account</BbCardDescription><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0ee777bb" style="display:none!important"></span>
+            </BbCardHeader><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt7a7ab39a" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt620217c7" data-blazordevtools-component="BbCardContent" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardContent>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt607b2598" data-blazordevtools-component="StatusMessage" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><StatusMessage Message="@errorMessage" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt607b2598" style="display:none!important"></span>
+                <div class="space-y-4">
+                    <div class="space-y-2">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt22840e80" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="Input.Email" class="text-sm font-medium leading-none shrink-0 peer-aria-[invalid=true]:text-destructive">Email</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt22840e80" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2fd53b0d" data-blazordevtools-component="InputText" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputText @bind-Value="Input.Email" id="Input.Email" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-[invalid=true]:border-destructive transition-colors md:text-sm" autocomplete="username webauthn" aria-required="true" placeholder="name@example.com" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2fd53b0d" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0dccee57" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage For="() => Input.Email" class="text-danger" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0dccee57" style="display:none!important"></span>
+                    </div>
+                    <div class="space-y-2">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt250aa1ec" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="Input.Password" class="text-sm font-medium leading-none shrink-0 peer-aria-[invalid=true]:text-destructive">Password</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt250aa1ec" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt254ff464" data-blazordevtools-component="InputText" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputText type="password" @bind-Value="Input.Password" id="Input.Password" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-[invalid=true]:border-destructive transition-colors md:text-sm" autocomplete="current-password" aria-required="true" placeholder="password" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt254ff464" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt7466ec77" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage For="() => Input.Password" class="text-danger" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt7466ec77" style="display:none!important"></span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        @* <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt62a03a25" data-blazordevtools-component="InputCheckbox" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputCheckbox @bind-Value="Input.RememberMe" class="peer h-5 w-5 shrink-0 rounded-sm border border-primary flex items-center justify-center ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-background" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt62a03a25" style="display:none!important"></span> *@
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5810dd0c" data-blazordevtools-component="InputCheckbox" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputCheckbox @bind-Value="Input.RememberMe"style="    --input-color: var(--color-neutral);
+    box-shadow: 0 1px oklch(0% 0 0 / calc(var(--depth) * .1)) inset, 0 0 #0000 inset, 0 0 #0000;
+    --size: calc(var(--size-selector, .25rem) * 6);
+    width: var(--size);
+    height: var(--size);
+    background-size: auto, calc(var(--noise) * 100%);
+    background-image: none, var(--fx-noise);
+    transition: background-color .2s, box-shadow .2s;" 
+                            
+                            
+                            /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5810dd0c" style="display:none!important"></span>
+
+                        @* <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt18bb170d" data-blazordevtools-component="BbCheckbox" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCheckbox Id="Input.RememberMe" @bind-Checked="Input.RememberMe" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt18bb170d" style="display:none!important"></span> *@
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2c40536d" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="Input.RememberMe" class="text-sm font-medium leading-none shrink-0 peer-aria-[invalid=true]:text-destructive">Remember me</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2c40536d" style="display:none!important"></span>
+                    </div>
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5ac7b8dc" data-blazordevtools-component="BbButton" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbButton Type="ButtonType.Submit" Class="w-full">Login</BbButton><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5ac7b8dc" style="display:none!important"></span>
+
+
+                   @*  <button type="submit" class="w-100 btn btn-lg btn-primary">Log in</button> *@
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt446dd49b" data-blazordevtools-component="BbSeparator" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSeparator /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt446dd49b" style="display:none!important"></span>
+                        </div>
+                        <div class="relative flex justify-center text-xs uppercase">
+                            <span class="bg-card px-2 text-muted-foreground"></span>
+                        </div>
+                    </div>
+                </div>
+            </BbCardContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt620217c7" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt43ee5c6b" data-blazordevtools-component="BbCardFooter" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardFooter>
+                <div class="grid grid-flow-col grid-rows-3 ">
+                    <div>
+                        <a href="Account/ForgotPassword" class="text-sm text-muted-foreground underline-offset-4 hover:underline">Forgot your password?</a>
+                    </div>
+                    <div>
+                        <div class="w-full text-center text-sm text-muted-foreground">
+                            Don't have an account?
+                            <a href="@(NavigationManager.GetUriWithQueryParameters("Account/Register", new Dictionary<string, object?> { ["ReturnUrl"] = ReturnUrl }))" class="text-primary underline-offset-4 hover:underline">Sign up</a>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="Account/ResendEmailConfirmation" class="text-sm text-muted-foreground underline-offset-4 hover:underline">Resend email confirmation</a>
+                    </div>
+                </div>
+            </BbCardFooter>
+        </BbCard>
+    </EditForm>
+
+    </div>
+
+</div>
+@* 
+
+    <div>
+    <div class="rounded-lg border bg-background p-8 flex items-center justify-center ">
+
+        <BbCard class="w-full max-w-sm">
+            <BbCardHeader>
+                <BbCardTitle class="text-2xl">Login to your account</BbCardTitle>
+                <BbCardDescription>Enter your email below to login to your account</BbCardDescription>
+            </BbCardHeader>
+            <BbCardContent>
+
+                <EditForm EditContext="editContext" OnValidSubmit="LoginUser" FormName="login2">
+                    <DataAnnotationsValidator />
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <BbFormFieldInput @bind-Value="Input.Email" Type="InputType.Email" TValue="string" Label="Email" Placeholder="name@example.com" />
+                        </div>
+                        <div class="space-y-2">
+                            <BbFormFieldInput @bind-Value="Input.Password" Type="InputType.Password" Label="Password" TValue="string" />
+
+                            <div class="flex items-center gap-2">
+                                <BbCheckbox Id="remember" @bind-Checked="Input.RememberMe" />
+                                <BbLabel For="remember" class="text-sm font-normal">Remember me</BbLabel>
+                            </div>
+                        </div>
+                        <BbButton Type="ButtonType.Submit" Class="w-full">Login</BbButton>
+                        <div class="relative">
+                            <div class="absolute inset-0 flex items-center">
+                                <BbSeparator />
+                            </div>
+                            <div class="relative flex justify-center text-xs uppercase">
+                                <span class="bg-card px-2 text-muted-foreground">Or continue with</span>
+                            </div>
+                        </div>
+                    </div>
+                </EditForm>
+
+
+            </BbCardContent>
+            <BbCardFooter>
+
+                <div class="grid grid-flow-col grid-rows-3 ">
+                    <div>
+                        <a href="Account/ForgotPassword" class="text-sm text-muted-foreground underline-offset-4 hover:underline">
+                            Forgot your password?
+                        </a>
+                    </div>
+                    <div>
+                        <div class="w-full text-center text-sm text-muted-foreground">
+                            Don't have an account?
+                            <a href="@(NavigationManager.GetUriWithQueryParameters("Account/Register", new Dictionary<string, object?> { ["ReturnUrl"] = ReturnUrl }))" class="text-primary underline-offset-4 hover:underline">Sign up</a>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="Account/ResendEmailConfirmation">Resend email confirmation</a>
+                    </div>
+                </div>
+
+            </BbCardFooter><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt43ee5c6b" style="display:none!important"></span>
+        </BbCard><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt735a30f4" style="display:none!important"></span>
+    </div>
+</div>
+
+ *@
+
+
+@* 
+<div>
+
+    <h1>Log in</h1>
+    <div class="row">
+        <div class="col-lg-6">
+            <section>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt1b691c9c" data-blazordevtools-component="StatusMessage" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><StatusMessage Message="@errorMessage" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt1b691c9c" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt1e1ccb11" data-blazordevtools-component="EditForm" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><EditForm EditContext="editContext" method="post" OnSubmit="LoginUser" FormName="login">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt46cd1777" data-blazordevtools-component="DataAnnotationsValidator" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><DataAnnotationsValidator /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt46cd1777" style="display:none!important"></span>
+                    <h2>Use a local account to log in.</h2>
+                    <hr />
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2ca557a7" data-blazordevtools-component="ValidationSummary" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationSummary class="text-danger" role="alert" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2ca557a7" style="display:none!important"></span>
+                    <div class="form-floating mb-3">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4877162d" data-blazordevtools-component="InputText" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputText @bind-Value="Input.Email" id="Input.Email" class="form-control" autocomplete="username webauthn" aria-required="true" placeholder="name@example.com" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4877162d" style="display:none!important"></span>
+                        <label for="Input.Email" class="form-label">Email</label>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt27d5b996" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage For="() => Input.Email" class="text-danger" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt27d5b996" style="display:none!important"></span>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4b4512a7" data-blazordevtools-component="InputText" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputText type="password" @bind-Value="Input.Password" id="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4b4512a7" style="display:none!important"></span>
+                        <label for="Input.Password" class="form-label">Password</label>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt62c81a80" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage For="() => Input.Password" class="text-danger" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt62c81a80" style="display:none!important"></span>
+                    </div>
+                    <div class="checkbox mb-3">
+                        <label class="form-label">
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt19f7f9e1" data-blazordevtools-component="InputCheckbox" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputCheckbox @bind-Value="Input.RememberMe" class="darker-border-checkbox form-check-input" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt19f7f9e1" style="display:none!important"></span>
+                            Remember me
+                        </label>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                    </div>
+                    <hr />
+                    <div class="d-flex flex-column">
+                        <span class="text-secondary mx-auto mt-2">OR</span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt36420cdb" data-blazordevtools-component="PasskeySubmit" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><PasskeySubmit Operation="PasskeyOperation.Request" Name="Input.Passkey" EmailName="Input.Email" class="btn btn-link mx-auto">Log in with a passkey</PasskeySubmit><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt36420cdb" style="display:none!important"></span>
+                    </div>
+                    <hr />
+                    <div>
+                        <p>
+                            <a href="Account/ForgotPassword">Forgot your password?</a>
+                        </p>
+                        <p>
+                            <a href="@(NavigationManager.GetUriWithQueryParameters("Account/Register", new Dictionary<string, object?> { ["ReturnUrl"] = ReturnUrl }))">Register as a new user</a>
+                        </p>
+                        <p>
+                            <a href="Account/ResendEmailConfirmation">Resend email confirmation</a>
+                        </p>
+                    </div>
+                </EditForm><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt1e1ccb11" style="display:none!important"></span>
+            </section>
+        </div>
+        <div class="col-lg-4 col-lg-offset-2">
+            <section>
+                <h3>Use another service to log in.</h3>
+                <hr />
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt30454cf2" data-blazordevtools-component="ExternalLoginPicker" data-blazordevtools-file="Components/Pages/Login.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ExternalLoginPicker /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt30454cf2" style="display:none!important"></span>
+            </section>
+        </div>
+    </div> 
+</div> *@
+@code {
+
+    private class ProductModel
+    {
+        [Required(ErrorMessage = "Product name is required.")]
+        public string? Name { get; set; }
+
+        [Required(ErrorMessage = "Price is required.")]
+        public decimal? Price { get; set; } = 29.99m;
+
+        [Range(1, 10000, ErrorMessage = "Stock must be between 1 and 10,000.")]
+        public int Stock { get; set; }
+    }
+    private EditContext editContextProduct = default!;
+    private ProductModel model = new();
+    public async Task HandleSubmit()
+    {
+
+    }
+
+
+
+
+
+    private string? errorMessage;
+    private EditContext editContext = default!;
+
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = default!;
+
+    [SupplyParameterFromQuery]
+    private string? ReturnUrl { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        editContextProduct = new EditContext(model);
+
+
+
+        Input ??= new();
+
+        editContext = new EditContext(Input);
+
+        if (HttpMethods.IsGet(HttpContext.Request.Method))
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme); // Clear the existing external cookie to ensure a clean login process
+    }
+
+    public async Task LoginUser()
+    {
+
+        // Input.Email = "jorge.garmilla@outlook.com";
+        // Input.Password = "SkinSka1981.";
+
+
+        if (!string.IsNullOrEmpty(Input.Passkey?.Error))
+        {
+            errorMessage = $"Error: {Input.Passkey.Error}";
+            return;
+        }
+
+        SignInResult result;
+        if (!string.IsNullOrEmpty(Input.Passkey?.CredentialJson))
+        {
+            // When performing passkey sign-in, don't perform form validation.
+            result = await SignInManager.PasskeySignInAsync(Input.Passkey.CredentialJson);
+        }
+        else
+        {
+            // If doing a password sign-in, validate the form.
+            if (!editContext.Validate())
+            {
+                return;
+            }
+
+            // This doesn't count login failures towards account lockout
+            // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+            result = await SignInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+
+            telemetryClient.TrackEvent("UserLoginAttempt", new Dictionary<string, string?>
+            {
+                { "Email", Input.Email },
+                { "Succeeded", result.Succeeded.ToString() },
+                { "RequiresTwoFactor", result.RequiresTwoFactor.ToString() },
+                { "IsLockedOut", result.IsLockedOut.ToString() }
+            });
+        }
+
+        if (result.Succeeded)
+        {
+            Logger.LogInformation("User logged in.");
+            RedirectManager.RedirectTo(ReturnUrl);
+        }
+        else if (result.RequiresTwoFactor)
+        {
+            RedirectManager.RedirectTo(
+                "Account/LoginWith2fa",
+                new() { ["returnUrl"] = ReturnUrl, ["rememberMe"] = Input.RememberMe });
+        }
+        else if (result.IsLockedOut)
+        {
+            Logger.LogWarning("User account locked out.");
+            RedirectManager.RedirectTo("Account/Lockout");
+        }
+        else
+        {
+            errorMessage = "Error: Invalid login attempt.";
+        }
+    }
+
+    private sealed class InputModel
+    {
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; } = "";
+
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; } = "";
+
+        [Display(Name = "Remember me?")]
+        public bool RememberMe { get; set; }
+
+        public PasskeyInputModel? Passkey { get; set; }
+    }
+
+}
+
+<span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2113e52f" style="display:none!important"></span>
+@* Injected by BlazorDeveloperTools (Dev-only) - Close *@

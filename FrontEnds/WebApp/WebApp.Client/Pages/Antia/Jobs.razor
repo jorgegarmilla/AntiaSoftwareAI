@@ -1,0 +1,110 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Authorization
+@using BlazorSortableList
+@page "/antia/jobs"
+@attribute [Authorize]
+@inherits AntiaComponentBase
+
+<_PageTitle Title="Jobs" BreadcrumbMenuGroupName="Template" BreadcrumbMenuOptionName="Jobs"></_PageTitle>
+
+<EditForm EditContext="_editContext" FormName="NewJobForm" OnValidSubmit="OnValidSubmit">
+
+        <div class="row">
+        <div class="col-md-6">
+            <div class="row mb-3">
+                <label for="inputText" class="col-sm-4 col-form-label">Nombre</label>
+                <div class="col-sm-8">
+                    <InputText @bind-Value=@_jobModelView.Description class="form-control col-sm-4"  maxlength="50"></InputText>
+                </div>
+                <ValidationMessage class="offset-sm-4 col-md-8 validation-message" For="@(() => _jobModelView.Description)" />
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary me-1">Guardar</button>
+
+</EditForm>
+
+<SortableList Id="sortable" Items="_jobModelViewList" OnUpdate="@SortList" Context="job">
+    <SortableItemTemplate>
+        <div class="antia-card">
+            <i class="bi bi-grip-vertical antia-card-element" style="color: darkgray"></i>
+
+            <p class="ml-1 antia-card-element" style="color: white">@job.Description</p>
+       </div> 
+    </SortableItemTemplate>
+</SortableList>
+
+@code {
+
+    [Inject]
+    private IApiProxy ApiProxy { get; set; } = default!;
+
+    [Inject]
+    private ResultState ResultState { get; set; } = default!;
+
+    private EditContext _editContext;
+    private List<JobModelView> _jobModelViewList = new List<JobModelView>();
+    private JobModelView _jobModelView = null;
+    // private FluentValidationValidator? _fluentValidationValidator;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _jobModelView = new JobModelView();
+        _editContext = new EditContext(_jobModelView);
+        _jobModelViewList = await ApiProxy.GetJobs();
+
+        ResultState.SetResult(_jobModelViewList.Count());
+    }
+
+    private async Task OnValidSubmit()
+    {
+        // if (await _fluentValidationValidator!.ValidateAsync())
+        // {
+            JobModelView newJob = new JobModelView
+            {
+                Description = _jobModelView.Description,
+                Id = _jobModelViewList.Max(j => j.Id) + 1,
+                Status = EJobStatus.Pending 
+            };
+
+            await ApiProxy.AddJob(newJob);
+            _jobModelViewList.Add(newJob);
+            ResultState.SetResult(_jobModelViewList.Count());
+
+            Console.WriteLine("Form Submitted Successfully!");
+        // }
+    }
+
+    private void SortList((int oldIndex, int newIndex) indices)
+    {
+        // deconstruct the tuple
+        var (oldIndex, newIndex) = indices;
+
+        var items = _jobModelViewList;
+        var itemToMove = items[oldIndex];
+        items.RemoveAt(oldIndex);
+
+        if (newIndex < items.Count)
+        {
+            items.Insert(newIndex, itemToMove);
+        }
+        else
+        {
+            items.Add(itemToMove);
+        }
+
+        StateHasChanged();
+    }
+
+
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender == true)
+        {
+            //await Task.Delay(1000);
+        }
+    }
+}

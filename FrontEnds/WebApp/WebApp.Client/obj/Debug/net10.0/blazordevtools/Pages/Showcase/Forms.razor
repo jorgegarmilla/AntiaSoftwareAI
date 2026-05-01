@@ -1,0 +1,300 @@
+@page "/showcase/forms"
+@layout _ShowcaseLayout
+@attribute [Authorize]
+
+@* Injected by BlazorDeveloperTools (Dev-only) - Open *@
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt203570da" data-blazordevtools-component="Forms" data-blazordevtools-file="Pages/Showcase/Forms.razor" style="display:none!important"></span>
+<PageTitle>Forms - Showcase</PageTitle>
+
+<div class="space-y-8">
+    <div>
+        <h1 class="text-3xl font-bold tracking-tight">Forms</h1>
+        <p class="text-muted-foreground mt-2">
+            Form components for collecting user input.
+        </p>
+    </div>
+
+    <!-- Input -->
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5dd85c3c" data-blazordevtools-component="BbCard" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCard>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt04833b64" data-blazordevtools-component="BbCardHeader" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardHeader>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt207392f2" data-blazordevtools-component="BbCardTitle" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardTitle>Input</BbCardTitle><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt207392f2" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt35bf6585" data-blazordevtools-component="BbCardDescription" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardDescription>Text input fields with various states.</BbCardDescription><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt35bf6585" style="display:none!important"></span>
+        </BbCardHeader><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt04833b64" style="display:none!important"></span>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2f0c102b" data-blazordevtools-component="BbCardContent" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardContent class="space-y-4 max-w-md">
+            <div class="space-y-2">
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6efe5900" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="email">Email</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6efe5900" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt56dc6623" data-blazordevtools-component="BbInput" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbInput id="email" Type="InputType.Email" Placeholder="Enter your email" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt56dc6623" style="display:none!important"></span>
+            </div>
+            <div class="space-y-2">
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt427de297" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="password">Password</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt427de297" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6d098bdd" data-blazordevtools-component="BbInput" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbInput id="password" Type="InputType.Password" Placeholder="Enter your password" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6d098bdd" style="display:none!important"></span>
+            </div>
+            <div class="space-y-2">
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0adf7916" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="disabled">Disabled</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0adf7916" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4a9ff362" data-blazordevtools-component="BbInput" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbInput id="disabled" Disabled="true" Placeholder="Disabled input" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4a9ff362" style="display:none!important"></span>
+            </div>
+        </BbCardContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2f0c102b" style="display:none!important"></span>
+    </BbCard><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5dd85c3c" style="display:none!important"></span>
+
+    <!-- Textarea -->
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2a976d12" data-blazordevtools-component="BbCard" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCard>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt49d2d313" data-blazordevtools-component="BbCardHeader" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardHeader>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt10805c6f" data-blazordevtools-component="BbCardTitle" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardTitle>Textarea</BbCardTitle><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt10805c6f" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4f61491e" data-blazordevtools-component="BbCardDescription" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardDescription>Multi-line text input.</BbCardDescription><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4f61491e" style="display:none!important"></span>
+        </BbCardHeader><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt49d2d313" style="display:none!important"></span>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt7cc1eeda" data-blazordevtools-component="BbCardContent" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardContent class="max-w-md">
+            <div class="space-y-2">
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0adf79f1" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="bio">Bio</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0adf79f1" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt43254d26" data-blazordevtools-component="BbTextarea" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbTextarea id="bio" Placeholder="Tell us about yourself..." class="min-h-[100px]" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt43254d26" style="display:none!important"></span>
+                <p class="text-sm text-muted-foreground">
+                    Write a few sentences about yourself.
+                </p>
+            </div>
+        </BbCardContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt7cc1eeda" style="display:none!important"></span>
+    </BbCard><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2a976d12" style="display:none!important"></span>
+
+    <!-- Select -->
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt7a78933c" data-blazordevtools-component="BbCard" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCard>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt7013608a" data-blazordevtools-component="BbCardHeader" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardHeader>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4a0a30c5" data-blazordevtools-component="BbCardTitle" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardTitle>Select</BbCardTitle><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4a0a30c5" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt50782eeb" data-blazordevtools-component="BbCardDescription" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardDescription>Dropdown selection component.</BbCardDescription><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt50782eeb" style="display:none!important"></span>
+        </BbCardHeader><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt7013608a" style="display:none!important"></span>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3b75485f" data-blazordevtools-component="BbCardContent" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardContent class="max-w-md">
+            <div class="space-y-2">
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2fbac879" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel>Select a framework</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2fbac879" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt1349739b" data-blazordevtools-component="BbSelect" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelect @bind-Value="selectedFramework" TValue="string">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0b7ca824" data-blazordevtools-component="BbSelectTrigger" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectTrigger>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt414ab602" data-blazordevtools-component="BbSelectValue" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectValue Placeholder="Choose a framework" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt414ab602" style="display:none!important"></span>
+                    </BbSelectTrigger><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0b7ca824" style="display:none!important"></span>
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt355a597e" data-blazordevtools-component="BbSelectContent" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectContent>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt60fcd356" data-blazordevtools-component="BbSelectGroup" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectGroup>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6ef07907" data-blazordevtools-component="BbSelectLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectLabel>Frameworks</BbSelectLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6ef07907" style="display:none!important"></span>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3ed3e087" data-blazordevtools-component="BbSelectItem" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectItem Value="@("blazor")" Text="Blazor" TValue="string">Blazor</BbSelectItem><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3ed3e087" style="display:none!important"></span>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt1e604652" data-blazordevtools-component="BbSelectItem" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectItem Value="@("react")" Text="React" TValue="string">React</BbSelectItem><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt1e604652" style="display:none!important"></span>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt429516b9" data-blazordevtools-component="BbSelectItem" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectItem Value="@("vue")" Text="Vue" TValue="string">Vue</BbSelectItem><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt429516b9" style="display:none!important"></span>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6fb2080c" data-blazordevtools-component="BbSelectItem" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectItem Value="@("angular")" Text="Angular" TValue="string">Angular</BbSelectItem><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6fb2080c" style="display:none!important"></span>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt761cd6a6" data-blazordevtools-component="BbSelectItem" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectItem Value="@("svelte")" Text="Svelte" TValue="string">Svelte</BbSelectItem><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt761cd6a6" style="display:none!important"></span>
+                        </BbSelectGroup><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt60fcd356" style="display:none!important"></span>
+                    </BbSelectContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt355a597e" style="display:none!important"></span>
+                </BbSelect><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt1349739b" style="display:none!important"></span>
+                @if (!string.IsNullOrEmpty(selectedFramework))
+                {
+                    <p class="text-sm text-muted-foreground">
+                        Selected: @selectedFramework
+                    </p>
+                }
+            </div>
+        </BbCardContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3b75485f" style="display:none!important"></span>
+    </BbCard><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt7a78933c" style="display:none!important"></span>
+
+    <!-- Combobox -->
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt566827b3" data-blazordevtools-component="BbCard" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCard>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt235dcc58" data-blazordevtools-component="BbCardHeader" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardHeader>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt69498576" data-blazordevtools-component="BbCardTitle" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardTitle>Combobox</BbCardTitle><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt69498576" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2a6899c1" data-blazordevtools-component="BbCardDescription" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardDescription>Searchable dropdown with autocomplete.</BbCardDescription><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2a6899c1" style="display:none!important"></span>
+        </BbCardHeader><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt235dcc58" style="display:none!important"></span>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5a607e66" data-blazordevtools-component="BbCardContent" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardContent class="max-w-md">
+            <div class="space-y-2">
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt610251aa" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel>Select a country</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt610251aa" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt7ffd0365" data-blazordevtools-component="BbCombobox" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCombobox TValue="string"
+                            Options="_countryOptions"
+                            @bind-Value="selectedCountry"
+                            Placeholder="Select country..."
+                            SearchPlaceholder="Search countries..."
+                            EmptyMessage="No country found."
+                            MatchTriggerWidth="true" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt7ffd0365" style="display:none!important"></span>
+                @if (!string.IsNullOrEmpty(selectedCountry))
+                {
+                    <p class="text-sm text-muted-foreground">
+                        Selected: @selectedCountry
+                    </p>
+                }
+            </div>
+        </BbCardContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5a607e66" style="display:none!important"></span>
+    </BbCard><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt566827b3" style="display:none!important"></span>
+
+    <!-- MultiSelect -->
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3703a7b7" data-blazordevtools-component="BbCard" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCard>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt39fabdf1" data-blazordevtools-component="BbCardHeader" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardHeader>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt16c37db8" data-blazordevtools-component="BbCardTitle" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardTitle>Multi Select</BbCardTitle><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt16c37db8" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt13933d75" data-blazordevtools-component="BbCardDescription" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardDescription>Select multiple items with search and tags.</BbCardDescription><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt13933d75" style="display:none!important"></span>
+        </BbCardHeader><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt39fabdf1" style="display:none!important"></span>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt665204ab" data-blazordevtools-component="BbCardContent" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardContent class="max-w-md">
+            <div class="space-y-2">
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4541f48b" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel>Select technologies</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4541f48b" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt27d136a0" data-blazordevtools-component="BbMultiSelect" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbMultiSelect TValue="string"
+                               Options="_technologyOptions"
+                               @bind-Values="selectedTechnologies"
+                               Placeholder="Select technologies..."
+                               SearchPlaceholder="Search technologies..."
+                               EmptyMessage="No technologies found."
+                               MaxDisplayTags="3"
+                               MatchTriggerWidth="true" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt27d136a0" style="display:none!important"></span>
+                @if (selectedTechnologies?.Any() == true)
+                {
+                    <p class="text-sm text-muted-foreground">
+                        Selected: @string.Join(", ", selectedTechnologies)
+                    </p>
+                }
+            </div>
+        </BbCardContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt665204ab" style="display:none!important"></span>
+    </BbCard><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3703a7b7" style="display:none!important"></span>
+
+    <!-- Checkbox -->
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2afcde2c" data-blazordevtools-component="BbCard" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCard>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0db8c58b" data-blazordevtools-component="BbCardHeader" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardHeader>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt36f563ce" data-blazordevtools-component="BbCardTitle" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardTitle>Checkbox</BbCardTitle><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt36f563ce" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3087659e" data-blazordevtools-component="BbCardDescription" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardDescription>Checkboxes for multiple selections.</BbCardDescription><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3087659e" style="display:none!important"></span>
+        </BbCardHeader><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0db8c58b" style="display:none!important"></span>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt19cd6845" data-blazordevtools-component="BbCardContent" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardContent class="space-y-4">
+            <div class="flex items-center space-x-2">
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt43bfde5e" data-blazordevtools-component="BbCheckbox" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCheckbox id="terms" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt43bfde5e" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt7c8aeaac" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="terms">Accept terms and conditions</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt7c8aeaac" style="display:none!important"></span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt02d8a9f6" data-blazordevtools-component="BbCheckbox" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCheckbox id="marketing" Checked="true" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt02d8a9f6" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt562fcf0e" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="marketing">Receive marketing emails</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt562fcf0e" style="display:none!important"></span>
+            </div>
+            <div class="flex items-center space-x-2">
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0dfb4613" data-blazordevtools-component="BbCheckbox" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCheckbox id="disabled-check" Disabled="true" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0dfb4613" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt648147fe" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="disabled-check" class="text-muted-foreground">Disabled checkbox</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt648147fe" style="display:none!important"></span>
+            </div>
+        </BbCardContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt19cd6845" style="display:none!important"></span>
+    </BbCard><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2afcde2c" style="display:none!important"></span>
+
+    <!-- Radio Group -->
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt05166692" data-blazordevtools-component="BbCard" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCard>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5307aee5" data-blazordevtools-component="BbCardHeader" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardHeader>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt08bd8adb" data-blazordevtools-component="BbCardTitle" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardTitle>Radio Group</BbCardTitle><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt08bd8adb" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt78217b45" data-blazordevtools-component="BbCardDescription" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardDescription>Radio buttons for single selection.</BbCardDescription><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt78217b45" style="display:none!important"></span>
+        </BbCardHeader><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5307aee5" style="display:none!important"></span>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt06a631f0" data-blazordevtools-component="BbCardContent" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardContent>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4f05dab5" data-blazordevtools-component="BbRadioGroup" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbRadioGroup @bind-Value="selectedPlan" class="space-y-2">
+                <div class="flex items-center space-x-2">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5e75721a" data-blazordevtools-component="BbRadioGroupItem" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbRadioGroupItem Value="@("free")" id="radio-free" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5e75721a" style="display:none!important"></span>
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3339be48" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="radio-free">Free</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3339be48" style="display:none!important"></span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt7ae6c91d" data-blazordevtools-component="BbRadioGroupItem" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbRadioGroupItem Value="@("pro")" id="radio-pro" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt7ae6c91d" style="display:none!important"></span>
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt1dfe1848" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="radio-pro">Pro - $9/month</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt1dfe1848" style="display:none!important"></span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt24c3efda" data-blazordevtools-component="BbRadioGroupItem" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbRadioGroupItem Value="@("enterprise")" id="radio-enterprise" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt24c3efda" style="display:none!important"></span>
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt57641508" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="radio-enterprise">Enterprise - Contact us</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt57641508" style="display:none!important"></span>
+                </div>
+            </BbRadioGroup><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4f05dab5" style="display:none!important"></span>
+            @if (!string.IsNullOrEmpty(selectedPlan))
+            {
+                <p class="text-sm text-muted-foreground mt-4">
+                    Selected plan: @selectedPlan
+                </p>
+            }
+        </BbCardContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt06a631f0" style="display:none!important"></span>
+    </BbCard><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt05166692" style="display:none!important"></span>
+
+    <!-- Switch -->
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3a371823" data-blazordevtools-component="BbCard" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCard>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt034fa35c" data-blazordevtools-component="BbCardHeader" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardHeader>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt50750095" data-blazordevtools-component="BbCardTitle" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardTitle>Switch</BbCardTitle><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt50750095" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt54110ec7" data-blazordevtools-component="BbCardDescription" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardDescription>Toggle switches for on/off states.</BbCardDescription><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt54110ec7" style="display:none!important"></span>
+        </BbCardHeader><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt034fa35c" style="display:none!important"></span>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt37845993" data-blazordevtools-component="BbCardContent" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardContent class="space-y-4">
+            <div class="flex items-center justify-between max-w-md">
+                <div class="space-y-0.5">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4cfaf439" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel>Airplane Mode</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4cfaf439" style="display:none!important"></span>
+                    <p class="text-sm text-muted-foreground">Disable all wireless connections.</p>
+                </div>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3ae6e477" data-blazordevtools-component="BbSwitch" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSwitch @bind-Checked="airplaneMode" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3ae6e477" style="display:none!important"></span>
+            </div>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt326fb120" data-blazordevtools-component="BbSeparator" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSeparator class="max-w-md" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt326fb120" style="display:none!important"></span>
+            <div class="flex items-center justify-between max-w-md">
+                <div class="space-y-0.5">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt1ce7ae53" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel>Wi-Fi</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt1ce7ae53" style="display:none!important"></span>
+                    <p class="text-sm text-muted-foreground">Connect to wireless networks.</p>
+                </div>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt29a75934" data-blazordevtools-component="BbSwitch" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSwitch Checked="true" Disabled="@airplaneMode" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt29a75934" style="display:none!important"></span>
+            </div>
+        </BbCardContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt37845993" style="display:none!important"></span>
+    </BbCard><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3a371823" style="display:none!important"></span>
+
+    <!-- Complete Form Example -->
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2d656b70" data-blazordevtools-component="BbCard" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCard>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt31c92fe3" data-blazordevtools-component="BbCardHeader" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardHeader>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt480b086d" data-blazordevtools-component="BbCardTitle" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardTitle>Complete Form</BbCardTitle><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt480b086d" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt55455485" data-blazordevtools-component="BbCardDescription" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardDescription>A complete form example with multiple field types.</BbCardDescription><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt55455485" style="display:none!important"></span>
+        </BbCardHeader><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt31c92fe3" style="display:none!important"></span>
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt12a909f9" data-blazordevtools-component="BbCardContent" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardContent>
+            <form class="space-y-6 max-w-md">
+                <div class="space-y-2">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4e2f397e" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="form-name">Name</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4e2f397e" style="display:none!important"></span>
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt232716b7" data-blazordevtools-component="BbInput" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbInput id="form-name" Placeholder="Your name" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt232716b7" style="display:none!important"></span>
+                </div>
+                <div class="space-y-2">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3625960d" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="form-email">Email</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3625960d" style="display:none!important"></span>
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt23271569" data-blazordevtools-component="BbInput" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbInput id="form-email" Type="InputType.Email" Placeholder="you@example.com" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt23271569" style="display:none!important"></span>
+                </div>
+                <div class="space-y-2">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2a998480" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel>Role</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2a998480" style="display:none!important"></span>
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3c5e831e" data-blazordevtools-component="BbSelect" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelect TValue="string">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt70bf3bf8" data-blazordevtools-component="BbSelectTrigger" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectTrigger>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6a08befb" data-blazordevtools-component="BbSelectValue" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectValue Placeholder="Select your role" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6a08befb" style="display:none!important"></span>
+                        </BbSelectTrigger><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt70bf3bf8" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2435e19d" data-blazordevtools-component="BbSelectContent" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectContent>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt1b6e35b0" data-blazordevtools-component="BbSelectItem" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectItem Value="@("developer")" Text="Developer" TValue="string">Developer</BbSelectItem><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt1b6e35b0" style="display:none!important"></span>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2712b612" data-blazordevtools-component="BbSelectItem" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectItem Value="@("designer")" Text="Designer" TValue="string">Designer</BbSelectItem><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2712b612" style="display:none!important"></span>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt11d710fd" data-blazordevtools-component="BbSelectItem" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSelectItem Value="@("manager")" Text="Manager" TValue="string">Manager</BbSelectItem><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt11d710fd" style="display:none!important"></span>
+                        </BbSelectContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2435e19d" style="display:none!important"></span>
+                    </BbSelect><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3c5e831e" style="display:none!important"></span>
+                </div>
+                <div class="space-y-2">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt47704d13" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="form-message">Message</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt47704d13" style="display:none!important"></span>
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt45a3639a" data-blazordevtools-component="BbTextarea" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbTextarea id="form-message" Placeholder="Your message..." /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt45a3639a" style="display:none!important"></span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0b8c5970" data-blazordevtools-component="BbCheckbox" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCheckbox id="subscribe" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0b8c5970" style="display:none!important"></span>
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6a4c72a7" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="subscribe">Subscribe to newsletter</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6a4c72a7" style="display:none!important"></span>
+                </div>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4372dd4c" data-blazordevtools-component="BbButton" data-blazordevtools-file="Pages/Showcase/Forms.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbButton Type="ButtonType.Submit" class="w-full">Submit</BbButton><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4372dd4c" style="display:none!important"></span>
+            </form>
+        </BbCardContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt12a909f9" style="display:none!important"></span>
+    </BbCard><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2d656b70" style="display:none!important"></span>
+</div>
+
+@code {
+    private string? selectedFramework;
+    private string selectedPlan = "free";
+    private bool airplaneMode;
+    private string? selectedCountry;
+    private IEnumerable<string>? selectedTechnologies;
+
+    private readonly SelectOption<string>[] _countryOptions =
+    [
+        new("us", "United States"),
+        new("gb", "United Kingdom"),
+        new("ca", "Canada"),
+        new("au", "Australia"),
+        new("de", "Germany"),
+        new("fr", "France"),
+        new("jp", "Japan"),
+        new("br", "Brazil"),
+        new("in", "India"),
+        new("mx", "Mexico")
+    ];
+
+    private readonly SelectOption<string>[] _technologyOptions =
+    [
+        new("csharp", "C#"),
+        new("blazor", "Blazor"),
+        new("dotnet", ".NET"),
+        new("typescript", "TypeScript"),
+        new("javascript", "JavaScript"),
+        new("react", "React"),
+        new("vue", "Vue"),
+        new("angular", "Angular"),
+        new("tailwind", "Tailwind CSS"),
+        new("postgres", "PostgreSQL")
+    ];
+}
+
+<span data-blazordevtools-marker="close" data-blazordevtools-id="bdt203570da" style="display:none!important"></span>
+@* Injected by BlazorDeveloperTools (Dev-only) - Close *@

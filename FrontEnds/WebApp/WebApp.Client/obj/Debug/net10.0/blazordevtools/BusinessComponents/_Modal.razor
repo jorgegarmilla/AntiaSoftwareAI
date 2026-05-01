@@ -1,0 +1,73 @@
+﻿@inherits AntiaComponentBase
+
+<div class="@GetModalClass()" id="modal_@_InternalId" tabindex="-1" aria-labelledby="modal_@_InternalId" aria-hidden="true" style="display:@(IsModalVisible ? "block" : "none");">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">@Title</h5>
+                <button type="button" class="btn-close" @onclick="Close" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @ChildContent
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="Close">Cerrar</button>
+                <button @attributes="@_buttonAttributes" type="button" class="btn btn-primary" @onclick="onSaveClick">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public EventCallback SavedClickedCallback { get; set; }
+
+    [Parameter]
+    public string Title { get; set; }
+
+    public Dictionary<string, object> _buttonAttributes { get; set; }
+
+    private string _InternalId = Guid.NewGuid().ToString();
+
+    private bool IsModalOpen { get; set; } = false; 
+    private bool IsModalVisible { get; set; } = false; 
+
+    private string GetModalClass()
+    {
+        return IsModalOpen ? "modal fade show d-block" : "modal fade";
+    }
+
+    private async Task onSaveClick()
+    {
+        if (Validate())
+        {
+            await Close();
+            await SavedClickedCallback.InvokeAsync();
+        }
+    }
+
+    public async Task Open()
+    {
+        IsModalVisible = true; 
+        await Task.Delay(5); 
+        IsModalOpen = true;  
+        StateHasChanged();   
+    }
+
+    public async Task Close()
+    {
+        IsModalOpen = false; 
+        StateHasChanged();   
+        await Task.Delay(200); 
+        IsModalVisible = false;
+        StateHasChanged();
+    }
+
+    private bool Validate()
+    {
+        return true;
+    }
+}

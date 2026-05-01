@@ -1,0 +1,21 @@
+﻿@* 
+@page "/Account/Logout"
+@using Microsoft.AspNetCore.Identity
+@using WebApp.Data
+@inject NavigationManager NavigationManager
+@inject IdentityRedirectManager RedirectManager
+@inject SignInManager<ApplicationUser> signInManager
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        await signInManager.SignOutAsync();
+        RedirectManager.RedirectTo("Account/Login");
+    }
+}
+ *@@* Injected by BlazorDeveloperTools (Dev-only) - Open *@
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4610af51" data-blazordevtools-component="Logout" data-blazordevtools-file="Components/Account/Pages/Logout.razor" style="display:none!important"></span>
+
+<span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4610af51" style="display:none!important"></span>
+@* Injected by BlazorDeveloperTools (Dev-only) - Close *@

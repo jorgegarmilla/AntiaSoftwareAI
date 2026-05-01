@@ -1,0 +1,11 @@
+.wasmloader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
+.background-gradient {
+    background: linear-gradient(90deg, #db3747 0%, #d62d61 26.04%, #81005e 51.04%, #53487a 74.48%, #1c537f 100%);
+}

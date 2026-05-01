@@ -1,0 +1,161 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Authorization
+@page "/modal"
+@inject NavigationManager Navigation
+@attribute [Authorize]
+@inherits AntiaComponentBase
+
+<_PageTitle Title="Modal" BreadcrumbMenuGroupName="Template" BreadcrumbMenuOptionName="Modal"></_PageTitle>
+
+<a href="https://getbootstrap.com/docs/5.0/components/modal/">Review Bootstrap options</a>
+
+<br />
+<br />
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg">
+            <div class="card" style="background-color:#f6f9ff">
+                <div class="card-body">
+                    <h5 class="card-title">Datos de empresa</h5>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-4 col-form-label">Id: @_empresa.Id.ToString()</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-4 col-form-label">Nombre: @_empresa.Nombre</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-4 col-form-label">Datos Contacto Empresa: </label>
+                                <div class="col-sm-4">
+                                    @_empresa.DatosContacto?.Telefono - @_empresa.DatosContacto?.Email
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn btn-primary" @onclick="onAbrirDatosContactoEmpresa">
+                                        Cambiar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row mb-3">
+                                <label for="inputText" class="col-sm-4 col-form-label">Datos Fiscales Empresa</label>
+                                <div class="col-sm-4">
+                                    @_empresa.DatosFiscales?.NombreFiscal - @_empresa.DatosFiscales?.CIF
+                                </div>
+                                <div class="col-sm-4">
+                                    <button type="button" class="btn btn-primary" @onclick="onAbrirDatosFiscalEmpresa">
+                                        Cambiar
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<_Modal SavedClickedCallback="onModalContactoSave" @ref="_modalContacto" Title="Datos de Contacto">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row mb-3">
+                <label for="inputText" class="col-sm-4 col-form-label">Telefono: </label>
+                <div class="col-sm-4">
+                    <InputText @bind-Value=@_datosContactoEmpresa.Telefono class="form-control col-sm-6" maxlength="50"></InputText>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row mb-3">
+                <label for="inputText" class="col-sm-4 col-form-label">Email: </label>
+                <div class="col-sm-4">
+                    <InputText @bind-Value=@_datosContactoEmpresa.Email class="form-control col-sm-6" maxlength="50"></InputText>
+                </div>
+            </div>
+        </div>
+    </div>
+</_Modal>
+
+
+<_Modal SavedClickedCallback="onModalFiscalSave" @ref="_modalFiscal" Title="Datos Fiscales">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row mb-3">
+                <label for="inputText" class="col-sm-4 col-form-label">CIF: </label>
+                <div class="col-sm-4">
+                    <InputText @bind-Value=@_datosFiscalesEmpresa.CIF class="form-control col-sm-6" maxlength="50"></InputText>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row mb-3">
+                <label for="inputText" class="col-sm-4 col-form-label">NombreFiscal: </label>
+                <div class="col-sm-4">
+                    <InputText @bind-Value=@_datosFiscalesEmpresa.NombreFiscal class="form-control col-sm-6" maxlength="50"></InputText>
+                </div>
+            </div>
+        </div>
+    </div>
+</_Modal>
+
+
+@code {
+    private Empresa _empresa = null;
+    private DatosContactoEmpresa _datosContactoEmpresa = null;
+    private DatosFiscalesEmpresa _datosFiscalesEmpresa = null;
+    private _Modal _modalContacto;
+    private _Modal _modalFiscal;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        _empresa = new Empresa
+        {
+            Nombre = "Mi Empresa",
+            Id = 1
+        };
+
+        _datosContactoEmpresa = new DatosContactoEmpresa();
+        _datosFiscalesEmpresa = new DatosFiscalesEmpresa();
+    }
+
+
+
+    private void SaveDatosFiscalesEmpresa()
+    {
+        _empresa.DatosFiscales = _datosFiscalesEmpresa;
+    }
+
+    private void onAbrirDatosContactoEmpresa()
+    {
+        _modalContacto.Open();
+    }
+
+    private void onAbrirDatosFiscalEmpresa()
+    {
+        _modalFiscal.Open();
+    }
+
+    private void onModalContactoSave()
+    {
+        _empresa.DatosContacto = _datosContactoEmpresa;
+    }
+
+    private void onModalFiscalSave()
+    {
+        _empresa.DatosFiscales = _datosFiscalesEmpresa;
+    }
+}

@@ -1,0 +1,29 @@
+﻿@attribute [Authorize]
+@page "/renderfragmentGeneric"
+@inherits AntiaComponentBase
+
+<_PageTitle Title="Render Fragment Header" BreadcrumbMenuGroupName="Template" BreadcrumbMenuOptionName="Render Fragment Header"></_PageTitle>
+
+<_GenericRenderFragment Items="JobsList" TItem="JobModelView">
+     
+    <HeaderFragment>
+        <h3>Hola desde Generic Render Fragment</h3>
+    </HeaderFragment>
+
+    <LineFragment >
+        @context.Description
+    </LineFragment>
+
+</_GenericRenderFragment>
+
+
+@code {
+
+    private List<JobModelView> JobsList = new List<JobModelView>()
+    {
+        new JobModelView() { Description = "Job A"},
+        new JobModelView() { Description = "Job B"},
+        new JobModelView() { Description = "Job C"},
+    };
+
+}

@@ -1,0 +1,65 @@
+﻿@typeparam T
+@inherits InputBase<T>
+
+
+<Microsoft.AspNetCore.Components.Forms.InputSelect class="@classcss" @bind-Value="HandleChange">
+    <!-- -->
+    @if (ShowDefaultOption)
+    {
+        <option value="0" selected disabled>Seleccione ...</option>
+    }
+    @if (DataSource != null)
+    {
+        @foreach (T item in DataSource)
+        {
+            <option value="@SelectorId(item).ToString()">@SelectorText(item)</option>
+        }
+    }
+
+</Microsoft.AspNetCore.Components.Forms.InputSelect>
+
+@code {
+
+    protected bool IsValidInput { get; set; } = true;
+
+    private string classcss
+    {
+        get
+        {
+            return "form-control "; // + (IsValidInput ? " valid" : " invalid");
+        }
+    }
+
+    //private string classcss => $"form-control{(IsValidInput ? " valid" : " invalid")}";
+
+    [Parameter] public List<T> DataSource { get; set; }
+    [Parameter] public Func<T, int> SelectorId { get; set; }
+    [Parameter] public Func<T, string> SelectorText { get; set; }
+
+    [Parameter] public bool ShowDefaultOption { get; set; } = false;
+
+    public string? HandleChange
+    {
+        get { return CurrentValueAsString; }
+        set { CurrentValueAsString = value; }
+    }
+
+    protected override string FormatValueAsString(T? value) 
+    {
+        if (value == null)
+        { 
+            IsValidInput = false;
+            return string.Empty;
+        }
+
+        IsValidInput = true;
+        return SelectorId(value).ToString();
+    }
+
+    protected override bool TryParseValueFromString(string? value, out T result, out string validationErrorMessage)
+    {
+        result = DataSource.First(x => SelectorId(x) == int.Parse(value));
+        validationErrorMessage = string.Empty;
+        return true;
+    }
+}

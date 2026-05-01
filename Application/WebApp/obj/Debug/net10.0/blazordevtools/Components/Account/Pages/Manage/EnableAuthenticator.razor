@@ -1,0 +1,189 @@
+﻿@page "/Account/Manage/EnableAuthenticator"
+
+@using System.ComponentModel.DataAnnotations
+@using System.Globalization
+@using System.Text
+@using System.Text.Encodings.Web
+@using Microsoft.AspNetCore.Identity
+@using WebApp.Data
+
+@inject UserManager<ApplicationUser> UserManager
+@inject UrlEncoder UrlEncoder
+@inject IdentityRedirectManager RedirectManager
+@inject ILogger<EnableAuthenticator> Logger
+
+@* Injected by BlazorDeveloperTools (Dev-only) - Open *@
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt48e1fe10" data-blazordevtools-component="EnableAuthenticator" data-blazordevtools-file="Components/Account/Pages/Manage/EnableAuthenticator.razor" style="display:none!important"></span>
+<PageTitle>Configure authenticator app</PageTitle>
+
+@if (recoveryCodes is not null)
+{
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt587ef6a9" data-blazordevtools-component="ShowRecoveryCodes" data-blazordevtools-file="Components/Account/Pages/Manage/EnableAuthenticator.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ShowRecoveryCodes RecoveryCodes="recoveryCodes.ToArray()" StatusMessage="@message" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt587ef6a9" style="display:none!important"></span>
+}
+else
+{
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt599bccfd" data-blazordevtools-component="StatusMessage" data-blazordevtools-file="Components/Account/Pages/Manage/EnableAuthenticator.razor" data-blazordevtools-nested="true" style="display:none!important"></span><StatusMessage Message="@message" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt599bccfd" style="display:none!important"></span>
+    <h3>Configure authenticator app</h3>
+    <div>
+        <p>To use an authenticator app go through the following steps:</p>
+        <ol class="list">
+            <li>
+                <p>
+                    Download a two-factor authenticator app like Microsoft Authenticator for
+                    <a href="https://go.microsoft.com/fwlink/?Linkid=825072">Android</a> and
+                    <a href="https://go.microsoft.com/fwlink/?Linkid=825073">iOS</a> or
+                    Google Authenticator for
+                    <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=en">Android</a> and
+                    <a href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8">iOS</a>.
+                </p>
+            </li>
+            <li>
+                <p>Scan the QR Code or enter this key <kbd>@sharedKey</kbd> into your two factor authenticator app. Spaces and casing do not matter.</p>
+                <div class="alert alert-info">Learn how to <a href="https://go.microsoft.com/fwlink/?Linkid=852423">enable QR code generation</a>.</div>
+                <div></div>
+                <div data-url="@authenticatorUri"></div>
+            </li>
+            <li>
+                <p>
+                    Once you have scanned the QR code or input the key above, your two factor authentication app will provide you
+                    with a unique code. Enter the code in the confirmation box below.
+                </p>
+                <div class="row">
+                    <div class="col-xl-6">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt05b79664" data-blazordevtools-component="EditForm" data-blazordevtools-file="Components/Account/Pages/Manage/EnableAuthenticator.razor" data-blazordevtools-nested="true" style="display:none!important"></span><EditForm Model="Input" FormName="send-code" OnValidSubmit="OnValidSubmitAsync" method="post">
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2407b8a9" data-blazordevtools-component="DataAnnotationsValidator" data-blazordevtools-file="Components/Account/Pages/Manage/EnableAuthenticator.razor" data-blazordevtools-nested="true" style="display:none!important"></span><DataAnnotationsValidator /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2407b8a9" style="display:none!important"></span>
+                            <div class="form-floating mb-3">
+                                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt25bb5f2b" data-blazordevtools-component="InputText" data-blazordevtools-file="Components/Account/Pages/Manage/EnableAuthenticator.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputText @bind-Value="Input.Code" id="Input.Code" class="form-control" autocomplete="off" placeholder="Enter the code" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt25bb5f2b" style="display:none!important"></span>
+                                <label for="Input.Code" class="control-label form-label">Verification Code</label>
+                                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4e254e55" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Components/Account/Pages/Manage/EnableAuthenticator.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage For="() => Input.Code" class="text-danger" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4e254e55" style="display:none!important"></span>
+                            </div>
+                            <button type="submit" class="w-100 btn btn-lg btn-primary">Verify</button>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt752afa7c" data-blazordevtools-component="ValidationSummary" data-blazordevtools-file="Components/Account/Pages/Manage/EnableAuthenticator.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationSummary class="text-danger" role="alert" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt752afa7c" style="display:none!important"></span>
+                        </EditForm><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt05b79664" style="display:none!important"></span>
+                    </div>
+                </div>
+            </li>
+        </ol>
+    </div>
+}
+
+@code {
+    private const string AuthenticatorUriFormat = "otpauth://totp/{0}:{1}?secret={2}&issuer={0}&digits=6";
+
+    private string? message;
+    private ApplicationUser? user;
+    private string? sharedKey;
+    private string? authenticatorUri;
+    private IEnumerable<string>? recoveryCodes;
+
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = default!;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Input ??= new();
+
+        user = await UserManager.GetUserAsync(HttpContext.User);
+        if (user is null)
+        {
+            RedirectManager.RedirectToInvalidUser(UserManager, HttpContext);
+            return;
+        }
+
+        await LoadSharedKeyAndQrCodeUriAsync(user);
+    }
+
+    private async Task OnValidSubmitAsync()
+    {
+        if (user is null)
+        {
+            RedirectManager.RedirectToInvalidUser(UserManager, HttpContext);
+            return;
+        }
+
+        // Strip spaces and hyphens
+        var verificationCode = Input.Code.Replace(" ", string.Empty).Replace("-", string.Empty);
+
+        var is2faTokenValid = await UserManager.VerifyTwoFactorTokenAsync(
+            user, UserManager.Options.Tokens.AuthenticatorTokenProvider, verificationCode);
+
+        if (!is2faTokenValid)
+        {
+            message = "Error: Verification code is invalid.";
+            return;
+        }
+
+        await UserManager.SetTwoFactorEnabledAsync(user, true);
+        var userId = await UserManager.GetUserIdAsync(user);
+        Logger.LogInformation("User with ID '{UserId}' has enabled 2FA with an authenticator app.", userId);
+
+        message = "Your authenticator app has been verified.";
+
+        if (await UserManager.CountRecoveryCodesAsync(user) == 0)
+        {
+            recoveryCodes = await UserManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 10);
+        }
+        else
+        {
+            RedirectManager.RedirectToWithStatus("Account/Manage/TwoFactorAuthentication", message, HttpContext);
+        }
+    }
+
+    private async ValueTask LoadSharedKeyAndQrCodeUriAsync(ApplicationUser user)
+    {
+        // Load the authenticator key & QR code URI to display on the form
+        var unformattedKey = await UserManager.GetAuthenticatorKeyAsync(user);
+        if (string.IsNullOrEmpty(unformattedKey))
+        {
+            await UserManager.ResetAuthenticatorKeyAsync(user);
+            unformattedKey = await UserManager.GetAuthenticatorKeyAsync(user);
+        }
+
+        sharedKey = FormatKey(unformattedKey!);
+
+        var email = await UserManager.GetEmailAsync(user);
+        authenticatorUri = GenerateQrCodeUri(email!, unformattedKey!);
+    }
+
+    private string FormatKey(string unformattedKey)
+    {
+        var result = new StringBuilder();
+        int currentPosition = 0;
+        while (currentPosition + 4 < unformattedKey.Length)
+        {
+            result.Append(unformattedKey.AsSpan(currentPosition, 4)).Append(' ');
+            currentPosition += 4;
+        }
+        if (currentPosition < unformattedKey.Length)
+        {
+            result.Append(unformattedKey.AsSpan(currentPosition));
+        }
+
+        return result.ToString().ToLowerInvariant();
+    }
+
+    private string GenerateQrCodeUri(string email, string unformattedKey)
+    {
+        return string.Format(
+            CultureInfo.InvariantCulture,
+            AuthenticatorUriFormat,
+            UrlEncoder.Encode("Microsoft.AspNetCore.Identity.UI"),
+            UrlEncoder.Encode(email),
+            unformattedKey);
+    }
+
+    private sealed class InputModel
+    {
+        [Required]
+        [StringLength(7, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [DataType(DataType.Text)]
+        [Display(Name = "Verification Code")]
+        public string Code { get; set; } = "";
+    }
+}
+
+<span data-blazordevtools-marker="close" data-blazordevtools-id="bdt48e1fe10" style="display:none!important"></span>
+@* Injected by BlazorDeveloperTools (Dev-only) - Close *@

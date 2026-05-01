@@ -1,0 +1,353 @@
+﻿@page "/Account/Login"
+
+@using System.ComponentModel.DataAnnotations
+@using Microsoft.ApplicationInsights
+@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Identity
+@using WebApp.Data
+
+@layout WebApp.Components.EmptyLayout
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject ILogger<Login> Logger
+@inject NavigationManager NavigationManager
+@inject IdentityRedirectManager RedirectManager
+@inject TelemetryClient telemetryClient
+
+<PageTitle>Antia Log in</PageTitle>
+
+
+<div class="min-h-screen flex items-center justify-center background-gradient">
+
+    <div class="p-6 pt-0" style="width: 450px">
+
+    <EditForm EditContext="editContext" method="post" OnSubmit="LoginUser" FormName="login">
+        <DataAnnotationsValidator />
+        <BbCard class="" >
+            <BbCardHeader>
+                <BbCardTitle class="text-2xl">Login to your account</BbCardTitle>
+                <BbCardDescription>Enter your email below to login to your account</BbCardDescription>
+            </BbCardHeader>
+            <BbCardContent>
+                <StatusMessage Message="@errorMessage" />
+                <div class="space-y-4">
+                    <div class="space-y-2">
+                        <BbLabel For="Input.Email" class="text-sm font-medium leading-none shrink-0 peer-aria-[invalid=true]:text-destructive">Email</BbLabel>
+                        <InputText @bind-Value="Input.Email" id="Input.Email" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-[invalid=true]:border-destructive transition-colors md:text-sm" autocomplete="username webauthn" aria-required="true" placeholder="name@example.com" />
+                        <ValidationMessage For="() => Input.Email" class="text-danger" />
+                    </div>
+                    <div class="space-y-2">
+                        <BbLabel For="Input.Password" class="text-sm font-medium leading-none shrink-0 peer-aria-[invalid=true]:text-destructive">Password</BbLabel>
+                        <InputText type="password" @bind-Value="Input.Password" id="Input.Password" class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-base file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 aria-[invalid=true]:border-destructive transition-colors md:text-sm" autocomplete="current-password" aria-required="true" placeholder="password" />
+                        <ValidationMessage For="() => Input.Password" class="text-danger" />
+                    </div>
+                    <div class="flex items-center gap-2">
+                        @* <InputCheckbox @bind-Value="Input.RememberMe" class="peer h-5 w-5 shrink-0 rounded-sm border border-primary flex items-center justify-center ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-background" /> *@
+                            <InputCheckbox @bind-Value="Input.RememberMe"style="    --input-color: var(--color-neutral);
+    box-shadow: 0 1px oklch(0% 0 0 / calc(var(--depth) * .1)) inset, 0 0 #0000 inset, 0 0 #0000;
+    --size: calc(var(--size-selector, .25rem) * 6);
+    width: var(--size);
+    height: var(--size);
+    background-size: auto, calc(var(--noise) * 100%);
+    background-image: none, var(--fx-noise);
+    transition: background-color .2s, box-shadow .2s;" 
+                            
+                            
+                            />
+
+                        @* <BbCheckbox Id="Input.RememberMe" @bind-Checked="Input.RememberMe" /> *@
+                        <BbLabel For="Input.RememberMe" class="text-sm font-medium leading-none shrink-0 peer-aria-[invalid=true]:text-destructive">Remember me</BbLabel>
+                    </div>
+                    <BbButton Type="ButtonType.Submit" Class="w-full">Login</BbButton>
+
+
+                   @*  <button type="submit" class="w-100 btn btn-lg btn-primary">Log in</button> *@
+                    <div class="relative">
+                        <div class="absolute inset-0 flex items-center">
+                            <BbSeparator />
+                        </div>
+                        <div class="relative flex justify-center text-xs uppercase">
+                            <span class="bg-card px-2 text-muted-foreground"></span>
+                        </div>
+                    </div>
+                </div>
+            </BbCardContent>
+            <BbCardFooter>
+                <div class="grid grid-flow-col grid-rows-3 ">
+                    <div>
+                        <a href="Account/ForgotPassword" class="text-sm text-muted-foreground underline-offset-4 hover:underline">Forgot your password?</a>
+                    </div>
+                    <div>
+                        <div class="w-full text-center text-sm text-muted-foreground">
+                            Don't have an account?
+                            <a href="@(NavigationManager.GetUriWithQueryParameters("Account/Register", new Dictionary<string, object?> { ["ReturnUrl"] = ReturnUrl }))" class="text-primary underline-offset-4 hover:underline">Sign up</a>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="Account/ResendEmailConfirmation" class="text-sm text-muted-foreground underline-offset-4 hover:underline">Resend email confirmation</a>
+                    </div>
+                </div>
+            </BbCardFooter>
+        </BbCard>
+    </EditForm>
+
+    </div>
+
+</div>
+@* 
+
+    <div>
+    <div class="rounded-lg border bg-background p-8 flex items-center justify-center ">
+
+        <BbCard class="w-full max-w-sm">
+            <BbCardHeader>
+                <BbCardTitle class="text-2xl">Login to your account</BbCardTitle>
+                <BbCardDescription>Enter your email below to login to your account</BbCardDescription>
+            </BbCardHeader>
+            <BbCardContent>
+
+                <EditForm EditContext="editContext" OnValidSubmit="LoginUser" FormName="login2">
+                    <DataAnnotationsValidator />
+                    <div class="space-y-4">
+                        <div class="space-y-2">
+                            <BbFormFieldInput @bind-Value="Input.Email" Type="InputType.Email" TValue="string" Label="Email" Placeholder="name@example.com" />
+                        </div>
+                        <div class="space-y-2">
+                            <BbFormFieldInput @bind-Value="Input.Password" Type="InputType.Password" Label="Password" TValue="string" />
+
+                            <div class="flex items-center gap-2">
+                                <BbCheckbox Id="remember" @bind-Checked="Input.RememberMe" />
+                                <BbLabel For="remember" class="text-sm font-normal">Remember me</BbLabel>
+                            </div>
+                        </div>
+                        <BbButton Type="ButtonType.Submit" Class="w-full">Login</BbButton>
+                        <div class="relative">
+                            <div class="absolute inset-0 flex items-center">
+                                <BbSeparator />
+                            </div>
+                            <div class="relative flex justify-center text-xs uppercase">
+                                <span class="bg-card px-2 text-muted-foreground">Or continue with</span>
+                            </div>
+                        </div>
+                    </div>
+                </EditForm>
+
+
+            </BbCardContent>
+            <BbCardFooter>
+
+                <div class="grid grid-flow-col grid-rows-3 ">
+                    <div>
+                        <a href="Account/ForgotPassword" class="text-sm text-muted-foreground underline-offset-4 hover:underline">
+                            Forgot your password?
+                        </a>
+                    </div>
+                    <div>
+                        <div class="w-full text-center text-sm text-muted-foreground">
+                            Don't have an account?
+                            <a href="@(NavigationManager.GetUriWithQueryParameters("Account/Register", new Dictionary<string, object?> { ["ReturnUrl"] = ReturnUrl }))" class="text-primary underline-offset-4 hover:underline">Sign up</a>
+                        </div>
+                    </div>
+                    <div>
+                        <a href="Account/ResendEmailConfirmation">Resend email confirmation</a>
+                    </div>
+                </div>
+
+            </BbCardFooter>
+        </BbCard>
+    </div>
+</div>
+
+ *@
+
+
+@* 
+<div>
+
+    <h1>Log in</h1>
+    <div class="row">
+        <div class="col-lg-6">
+            <section>
+                <StatusMessage Message="@errorMessage" />
+                <EditForm EditContext="editContext" method="post" OnSubmit="LoginUser" FormName="login">
+                    <DataAnnotationsValidator />
+                    <h2>Use a local account to log in.</h2>
+                    <hr />
+                    <ValidationSummary class="text-danger" role="alert" />
+                    <div class="form-floating mb-3">
+                        <InputText @bind-Value="Input.Email" id="Input.Email" class="form-control" autocomplete="username webauthn" aria-required="true" placeholder="name@example.com" />
+                        <label for="Input.Email" class="form-label">Email</label>
+                        <ValidationMessage For="() => Input.Email" class="text-danger" />
+                    </div>
+                    <div class="form-floating mb-3">
+                        <InputText type="password" @bind-Value="Input.Password" id="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+                        <label for="Input.Password" class="form-label">Password</label>
+                        <ValidationMessage For="() => Input.Password" class="text-danger" />
+                    </div>
+                    <div class="checkbox mb-3">
+                        <label class="form-label">
+                            <InputCheckbox @bind-Value="Input.RememberMe" class="darker-border-checkbox form-check-input" />
+                            Remember me
+                        </label>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-100 btn btn-lg btn-primary">Log in</button>
+                    </div>
+                    <hr />
+                    <div class="d-flex flex-column">
+                        <span class="text-secondary mx-auto mt-2">OR</span>
+                        <PasskeySubmit Operation="PasskeyOperation.Request" Name="Input.Passkey" EmailName="Input.Email" class="btn btn-link mx-auto">Log in with a passkey</PasskeySubmit>
+                    </div>
+                    <hr />
+                    <div>
+                        <p>
+                            <a href="Account/ForgotPassword">Forgot your password?</a>
+                        </p>
+                        <p>
+                            <a href="@(NavigationManager.GetUriWithQueryParameters("Account/Register", new Dictionary<string, object?> { ["ReturnUrl"] = ReturnUrl }))">Register as a new user</a>
+                        </p>
+                        <p>
+                            <a href="Account/ResendEmailConfirmation">Resend email confirmation</a>
+                        </p>
+                    </div>
+                </EditForm>
+            </section>
+        </div>
+        <div class="col-lg-4 col-lg-offset-2">
+            <section>
+                <h3>Use another service to log in.</h3>
+                <hr />
+                <ExternalLoginPicker />
+            </section>
+        </div>
+    </div> 
+</div> *@
+@code {
+
+    private class ProductModel
+    {
+        [Required(ErrorMessage = "Product name is required.")]
+        public string? Name { get; set; }
+
+        [Required(ErrorMessage = "Price is required.")]
+        public decimal? Price { get; set; } = 29.99m;
+
+        [Range(1, 10000, ErrorMessage = "Stock must be between 1 and 10,000.")]
+        public int Stock { get; set; }
+    }
+    private EditContext editContextProduct = default!;
+    private ProductModel model = new();
+    public async Task HandleSubmit()
+    {
+
+    }
+
+
+
+
+
+    private string? errorMessage;
+    private EditContext editContext = default!;
+
+    [CascadingParameter]
+    private HttpContext HttpContext { get; set; } = default!;
+
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = default!;
+
+    [SupplyParameterFromQuery]
+    private string? ReturnUrl { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        editContextProduct = new EditContext(model);
+
+
+
+        Input ??= new();
+
+        editContext = new EditContext(Input);
+
+        if (HttpMethods.IsGet(HttpContext.Request.Method))
+            await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme); // Clear the existing external cookie to ensure a clean login process
+    }
+
+    public async Task LoginUser()
+    {
+
+        // Input.Email = "jorge.garmilla@outlook.com";
+        // Input.Password = "SkinSka1981.";
+
+
+        if (!string.IsNullOrEmpty(Input.Passkey?.Error))
+        {
+            errorMessage = $"Error: {Input.Passkey.Error}";
+            return;
+        }
+
+        SignInResult result;
+        if (!string.IsNullOrEmpty(Input.Passkey?.CredentialJson))
+        {
+            // When performing passkey sign-in, don't perform form validation.
+            result = await SignInManager.PasskeySignInAsync(Input.Passkey.CredentialJson);
+        }
+        else
+        {
+            // If doing a password sign-in, validate the form.
+            if (!editContext.Validate())
+            {
+                return;
+            }
+
+            // This doesn't count login failures towards account lockout
+            // To enable password failures to trigger account lockout, set lockoutOnFailure: true
+            result = await SignInManager.PasswordSignInAsync(Input.Email, Input.Password, Input.RememberMe, lockoutOnFailure: false);
+
+            telemetryClient.TrackEvent("UserLoginAttempt", new Dictionary<string, string?>
+            {
+                { "Email", Input.Email },
+                { "Succeeded", result.Succeeded.ToString() },
+                { "RequiresTwoFactor", result.RequiresTwoFactor.ToString() },
+                { "IsLockedOut", result.IsLockedOut.ToString() }
+            });
+        }
+
+        if (result.Succeeded)
+        {
+            Logger.LogInformation("User logged in.");
+            RedirectManager.RedirectTo(ReturnUrl);
+        }
+        else if (result.RequiresTwoFactor)
+        {
+            RedirectManager.RedirectTo(
+                "Account/LoginWith2fa",
+                new() { ["returnUrl"] = ReturnUrl, ["rememberMe"] = Input.RememberMe });
+        }
+        else if (result.IsLockedOut)
+        {
+            Logger.LogWarning("User account locked out.");
+            RedirectManager.RedirectTo("Account/Lockout");
+        }
+        else
+        {
+            errorMessage = "Error: Invalid login attempt.";
+        }
+    }
+
+    private sealed class InputModel
+    {
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; } = "";
+
+        [Required]
+        [DataType(DataType.Password)]
+        public string Password { get; set; } = "";
+
+        [Display(Name = "Remember me?")]
+        public bool RememberMe { get; set; }
+
+        public PasskeyInputModel? Passkey { get; set; }
+    }
+
+}

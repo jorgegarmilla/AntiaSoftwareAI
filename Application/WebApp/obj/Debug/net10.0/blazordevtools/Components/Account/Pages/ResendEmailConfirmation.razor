@@ -1,0 +1,78 @@
+﻿@page "/Account/ResendEmailConfirmation"
+
+@using System.ComponentModel.DataAnnotations
+@using System.Text
+@using System.Text.Encodings.Web
+@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.WebUtilities
+@using WebApp.Data
+
+@inject UserManager<ApplicationUser> UserManager
+@inject IEmailSender<ApplicationUser> EmailSender
+@inject NavigationManager NavigationManager
+@inject IdentityRedirectManager RedirectManager
+
+@* Injected by BlazorDeveloperTools (Dev-only) - Open *@
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt18e47fa3" data-blazordevtools-component="ResendEmailConfirmation" data-blazordevtools-file="Components/Account/Pages/ResendEmailConfirmation.razor" style="display:none!important"></span>
+<PageTitle>Resend email confirmation</PageTitle>
+
+<h1>Resend email confirmation</h1>
+<h2>Enter your email.</h2>
+<hr />
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt244030c5" data-blazordevtools-component="StatusMessage" data-blazordevtools-file="Components/Account/Pages/ResendEmailConfirmation.razor" data-blazordevtools-nested="true" style="display:none!important"></span><StatusMessage Message="@message" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt244030c5" style="display:none!important"></span>
+<div class="row">
+    <div class="col-md-4">
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4b307003" data-blazordevtools-component="EditForm" data-blazordevtools-file="Components/Account/Pages/ResendEmailConfirmation.razor" data-blazordevtools-nested="true" style="display:none!important"></span><EditForm Model="Input" FormName="resend-email-confirmation" OnValidSubmit="OnValidSubmitAsync" method="post">
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt51c6f511" data-blazordevtools-component="DataAnnotationsValidator" data-blazordevtools-file="Components/Account/Pages/ResendEmailConfirmation.razor" data-blazordevtools-nested="true" style="display:none!important"></span><DataAnnotationsValidator /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt51c6f511" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt026729a2" data-blazordevtools-component="ValidationSummary" data-blazordevtools-file="Components/Account/Pages/ResendEmailConfirmation.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationSummary class="text-danger" role="alert" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt026729a2" style="display:none!important"></span>
+            <div class="form-floating mb-3">
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2246fa48" data-blazordevtools-component="InputText" data-blazordevtools-file="Components/Account/Pages/ResendEmailConfirmation.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputText @bind-Value="Input.Email" id="Input.Email" class="form-control" aria-required="true" placeholder="name@example.com" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2246fa48" style="display:none!important"></span>
+                <label for="Input.Email" class="form-label">Email</label>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt16ee18e7" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Components/Account/Pages/ResendEmailConfirmation.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage For="() => Input.Email" class="text-danger" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt16ee18e7" style="display:none!important"></span>
+            </div>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Resend</button>
+        </EditForm><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4b307003" style="display:none!important"></span>
+    </div>
+</div>
+
+@code {
+    private string? message;
+
+    [SupplyParameterFromForm]
+    private InputModel Input { get; set; } = default!;
+
+    protected override void OnInitialized()
+    {
+        Input ??= new();
+    }
+
+    private async Task OnValidSubmitAsync()
+    {
+        var user = await UserManager.FindByEmailAsync(Input.Email!);
+        if (user is null)
+        {
+            message = "Verification email sent. Please check your email.";
+            return;
+        }
+
+        var userId = await UserManager.GetUserIdAsync(user);
+        var code = await UserManager.GenerateEmailConfirmationTokenAsync(user);
+        code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
+        var callbackUrl = NavigationManager.GetUriWithQueryParameters(
+            NavigationManager.ToAbsoluteUri("Account/ConfirmEmail").AbsoluteUri,
+            new Dictionary<string, object?> { ["userId"] = userId, ["code"] = code });
+        await EmailSender.SendConfirmationLinkAsync(user, Input.Email, HtmlEncoder.Default.Encode(callbackUrl));
+
+        message = "Verification email sent. Please check your email.";
+    }
+
+    private sealed class InputModel
+    {
+        [Required]
+        [EmailAddress]
+        public string Email { get; set; } = "";
+    }
+}
+
+<span data-blazordevtools-marker="close" data-blazordevtools-id="bdt18e47fa3" style="display:none!important"></span>
+@* Injected by BlazorDeveloperTools (Dev-only) - Close *@

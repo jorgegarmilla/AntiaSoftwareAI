@@ -1,0 +1,30 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Authorization
+@page "/antia/environment"
+@inject NavigationManager Navigation
+@attribute [Authorize]
+@inherits AntiaComponentBase
+
+<_PageTitle Title="Environment" BreadcrumbMenuGroupName="Template" BreadcrumbMenuOptionName="Environment"></_PageTitle>
+
+<br />
+<label><strong>Environment Name from Cascading Parameter:</strong> @EnvironmentName</label>
+<br />
+<br />
+
+@foreach (Pais pais in PaisesList)
+{
+    <label>@pais.Nombre</label>
+    <br />
+}
+
+@code {
+
+    [CascadingParameter]
+    private List<Pais> PaisesList { get; set; }
+
+
+    [CascadingParameter(Name = "EnvironmentName")]
+    private string EnvironmentName { get; set; }
+
+}

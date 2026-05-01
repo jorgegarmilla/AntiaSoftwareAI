@@ -1,0 +1,29 @@
+﻿@attribute [Authorize]
+@page "/renderfragmentNonGeneric"
+@inherits AntiaComponentBase
+
+<_PageTitle Title="Render Fragment Header" BreadcrumbMenuGroupName="Template" BreadcrumbMenuOptionName="Render Fragment Header"></_PageTitle>
+
+<_NonGenericRenderFragment Jobs="JobsList">
+     
+    <HeaderFragment>
+        <h3>Hola desde Non Generic Render Fragment</h3>
+    </HeaderFragment>
+
+    <LineFragment >
+        @context.Description
+    </LineFragment>
+
+</_NonGenericRenderFragment>
+
+
+@code {
+
+    private List<JobModelView> JobsList = new List<JobModelView>()
+    {
+        new JobModelView() { Description = "Job 1"},
+        new JobModelView() { Description = "Job 2"},
+        new JobModelView() { Description = "Job 3"},
+    };
+
+}

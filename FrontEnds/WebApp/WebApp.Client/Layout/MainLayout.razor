@@ -1,0 +1,253 @@
+﻿@inherits LayoutComponentBase
+@inject IServiceProvider ServiceProvider
+@inject IJSRuntime JSRuntime
+@inject NavigationManager NavigationManager
+@attribute [Authorize]
+@using Blazor.WhyDidYouRender.Extensions
+
+<div class="relative min-h-screen flex flex-col">
+    <_TopBar />
+
+
+    <BbSidebarProvider>
+        <BbSidebar>
+            <BbSidebarHeader>
+                
+                <BbDropdownMenu>
+                    <BbDropdownMenuTrigger>
+                        <BbButton Variant="ButtonVariant.Ghost" Class="w-full justify-start gap-2">
+                            <div class="h-8 w-8 rounded-lg bg-primary" />
+                            <span class="font-semibold">Acme Corp</span>
+                            <LucideIcon Name="chevrons-up-down" class="ml-auto" />
+                        </BbButton>
+                    </BbDropdownMenuTrigger>
+                    <BbDropdownMenuContent Class="w-60">
+                        <BbDropdownMenuLabel>Teams</BbDropdownMenuLabel>
+                        <BbDropdownMenuSeparator />
+                        <BbDropdownMenuItem>Acme Corp</BbDropdownMenuItem>
+                        <BbDropdownMenuItem>Monster Inc</BbDropdownMenuItem>
+                        <BbDropdownMenuSeparator />
+                        <BbDropdownMenuItem>Add team</BbDropdownMenuItem>
+                    </BbDropdownMenuContent>
+                </BbDropdownMenu>
+
+            </BbSidebarHeader>
+            <BbSidebarContent>
+
+                <BbSidebarGroup>
+                    <BbCollapsible DefaultOpen="true">
+                        <BbCollapsibleTrigger AsChild="false" Class=@("w-full [&_svg]:transition-transform [&_svg]:duration-200 data-[state=open]:[&_svg]:rotate-180")>
+                            <BbSidebarGroupLabel Class="cursor-pointer hover:bg-sidebar-accent/50 rounded-md">
+                                <LucideIcon Name="chevron-down" class="h-3.5 w-3.5 mr-1" />
+                                Antía
+                            </BbSidebarGroupLabel>
+                        </BbCollapsibleTrigger>
+                        <BbCollapsibleContent>
+                            <BbSidebarMenu>
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/antia/test" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="house" />
+                                        <span>TEST</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/antia/environment" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="house" />
+                                        <span>Environment and cascade parameter</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/initializator" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="house" />
+                                        <span>Initializator (api call)</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/initializatorTwo" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="house" />
+                                        <span>Initializator #2</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/pagecomponenttree" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="house" />
+                                        <span>Page Component Tree</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/renderfragmentbasic" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="house" />
+                                        <span>Render Fragment Basic</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/renderfragmentNonGeneric" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="house" />
+                                        <span>Render Fragment Non Generic</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/renderfragmentGeneric" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="house" />
+                                        <span>Render Fragment Generic</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/cssPage" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="house" />
+                                        <span>CSS Sample</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/AttributeSplatting" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="house" />
+                                        <span>Attribute Splatting</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/modal" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="house" />
+                                        <span>Modal</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/initializator" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="house" />
+                                        <span>initializator</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+                            </BbSidebarMenu>
+                        </BbCollapsibleContent>
+                    </BbCollapsible>
+                </BbSidebarGroup>
+
+               
+                 <BbSidebarGroup>
+
+                    <BbCollapsible DefaultOpen="false">
+                        <BbCollapsibleTrigger AsChild="false" Class=@("w-full [&_svg]:transition-transform [&_svg]:duration-200 data-[state=open]:[&_svg]:rotate-180")>
+                            <BbSidebarGroupLabel Class="cursor-pointer hover:bg-sidebar-accent/50 rounded-md">
+                                <LucideIcon Name="chevron-down" class="h-3.5 w-3.5 mr-1" />
+                                Showcase
+                            </BbSidebarGroupLabel>
+                        </BbCollapsibleTrigger>
+                        <BbCollapsibleContent>
+                            <BbSidebarMenu>
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/showcase/buttons" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="mouse-pointer-click" />
+                                        <span>Buttons</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/showcase/cards" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="square" />
+                                        <span>Cards</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/showcase/forms" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="text-cursor-input" />
+                                        <span>Forms</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/showcase/dialogs" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="panel-top" />
+                                        <span>Dialogs</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/showcase/alerts" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="bell" />
+                                        <span>Alerts</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/showcase/navigation" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="navigation" />
+                                        <span>Navigation</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton Href="/showcase/data-display" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground">
+                                        <LucideIcon Name="table" />
+                                        <span>Data Display</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+                                <BbSidebarMenuItem>
+                                    <BbSidebarMenuButton>
+                                        <LucideIcon Name="inbox" Href="/antia/environment" Class="hover:bg-sidebar-accent hover:text-sidebar-accent-foreground" />
+                                        <span>Inbox</span>
+                                    </BbSidebarMenuButton>
+                                </BbSidebarMenuItem>
+                            </BbSidebarMenu>
+                        </BbCollapsibleContent>
+                    </BbCollapsible>
+                   
+                 </BbSidebarGroup>
+               
+            </BbSidebarContent>
+        </BbSidebar>
+        <BbSidebarInset >
+            <main style="padding: 20px;">@Body</main>
+        </BbSidebarInset>
+    </BbSidebarProvider>
+
+
+
+    @* 
+    <LeftMenuLayout />
+    <main class="flex-1">
+        
+        @Body
+    </main> *@
+    <_Footer />
+</div>
+
+<BbToastProvider Position="ToastPosition.BottomRight" />
+<BbDialogProvider />
+<BbPortalHost />
+
+@code {
+
+    [Parameter]
+    public EventCallback NavigationHappened { get; set; }
+
+    [Inject]
+    private ResultState ResultState { get; set; } = default!;
+
+    private string? currentUrl;
+
+    protected override void OnInitialized()
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
+        NavigationManager.LocationChanged += OnLocationChanged;
+        ResultState.OnChange += StateHasChanged;
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
+        NavigationHappened.InvokeAsync();
+        StateHasChanged();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+        ResultState.OnChange -= StateHasChanged;
+    }
+
+}

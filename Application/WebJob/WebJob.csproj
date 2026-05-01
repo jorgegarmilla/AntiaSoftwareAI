@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Domain\BusinessLogic\BusinessLogic.csproj" />
+    <ProjectReference Include="..\..\Domain\Model\Model.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Cloud\Cloud.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\Data\Data.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,372 @@
+﻿@using System.ComponentModel.DataAnnotations
+@using WebApp.Client.ModelView
+@using System.Globalization
+
+@page "/form/{EmpleadoId:int?}"
+@inherits AntiaComponentBase
+@attribute [Authorize]
+@inject IJSRuntime IJSRuntime
+@inject IDataService DataServiceThisPage 
+@inject ILogger<Form> Logger
+@implements IDisposable
+
+@* Injected by BlazorDeveloperTools (Dev-only) - Open *@
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6ada04b7" data-blazordevtools-component="Form" data-blazordevtools-file="Pages/Antia/Form.razor" style="display:none!important"></span>
+<_PageTitle Title="Basic Form" BreadcrumbMenuGroupName="Forms" BreadcrumbMenuOptionName="Basic Form"></_PageTitle>
+
+@if (IsSubmitted)
+{
+    <p class="text-success mt-3 h3">✔ Empleado creado!</p>
+}
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg">
+            <div class="card" style="background-color:#f6f9ff">
+                <div class="card-body">
+
+                    @{
+                        string title = string.Empty;
+
+                        if (_empleado != null &&string.IsNullOrEmpty(_empleado.Nombre) == false)
+                        {
+                            if (string.IsNullOrEmpty(_empleado.Apellidos) == false)
+                                title = string.Format("({0} - {1})", _empleado.Nombre, _empleado.Apellidos);
+                            else
+                                title = string.Format("({0})", _empleado.Nombre);
+                        }
+                    }
+
+                    <h5 class="card-title">Añadir Nuevo Empleado @title </h5>
+
+                    @if (_empleado != null)
+                    {
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt793b34b7" data-blazordevtools-component="EditForm" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><EditForm FormName="EmpleadoForm" OnValidSubmit="OnValidSubmit" EditContext="_editContext">
+                            
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt71233c40" data-blazordevtools-component="DataAnnotationsValidator" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><DataAnnotationsValidator /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt71233c40" style="display:none!important"></span>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3af5307a" data-blazordevtools-component="ValidationSummary" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationSummary Model="@_empleado" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3af5307a" style="display:none!important"></span>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row mb-3">
+                                        <label for="inputText" class="col-sm-4 col-form-label">Nombre</label>
+                                        <div class="col-sm-8">
+                                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4ccc5cc5" data-blazordevtools-component="InputText" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputText @bind-Value=@_empleado.Nombre class="form-control col-sm-4" placeholder="Introduzca el Nombre" maxlength="50"></InputText><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4ccc5cc5" style="display:none!important"></span>
+                                        </div>
+                                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt31005ebf" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage class="offset-sm-4 col-md-8 validation-message" For="@(() => _empleado.Nombre)" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt31005ebf" style="display:none!important"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row mb-3">
+                                        <label for="inputText" class="col-sm-4 col-form-label">Apellidos</label>
+                                        <div class="col-sm-8">
+                                            <_InputTextTriggerBindingOnInput @bind-Value=@_empleado.Apellidos class="rz-textbox form-control col-sm-4"></_InputTextTriggerBindingOnInput>
+                                        </div>
+                                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6ba5a9d3" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage class="offset-sm-4 col-md-8 validation-message" For="@(() => _empleado.Apellidos)" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6ba5a9d3" style="display:none!important"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row mb-3">
+                                        <label for="inputText" class="col-sm-4 col-form-label">Email</label>
+                                        <div class="col-sm-8">
+                                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt09567bf9" data-blazordevtools-component="InputText" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputText autocomplete="off" @bind-Value=@_empleado.Email class="form-control col-sm-4"></InputText><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt09567bf9" style="display:none!important"></span>
+                                        </div>
+                                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0d18d8da" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage class="offset-sm-4 col-md-8 validation-message" For="@(() => _empleado.Email)" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0d18d8da" style="display:none!important"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row mb-3">
+                                        <label for="inputText" class="col-sm-4 col-form-label">Contraseña</label>
+                                        <div class="col-sm-8">
+                                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt73e625e7" data-blazordevtools-component="InputText" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputText autocomplete="new-password" type="password" @bind-Value=@_empleado.Password class="form-control col-sm-4" aria-label="enter password" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt73e625e7" style="display:none!important"></span>
+                                        </div>
+                                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt07176ccd" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage class="offset-sm-4 col-md-8 validation-message" For="@(() => _empleado.Password)" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt07176ccd" style="display:none!important"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row mb-3">
+                                        <label for="inputText" class="col-sm-4 col-form-label">Fecha Alta</label>
+                                        <div class="col-sm-8">
+                                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0c966d38" data-blazordevtools-component="InputDate" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputDate @bind-Value=@_empleado.FechaAlta ParsingErrorMessage="Introduzca una fecha válida" class="form-control col-sm-4"></InputDate><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0c966d38" style="display:none!important"></span>
+                                        </div>
+                                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt33286e39" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage class="offset-sm-4 col-md-8 validation-message" For="@(() => _empleado.FechaAlta)" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt33286e39" style="display:none!important"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row mb-3">
+                                        <label for="inputText" class="col-sm-4 col-form-label">Fecha Baja</label>
+                                        <div class="col-sm-8">
+                                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt7f3baa2e" data-blazordevtools-component="InputDate" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputDate @bind-Value=@_empleado.FechaBaja ParsingErrorMessage="Introduzca una fecha válida" class="form-control col-sm-4"></InputDate><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt7f3baa2e" style="display:none!important"></span>
+                                        </div>
+                                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt57756536" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage class="offset-sm-4 col-md-8 validation-message" For="@(() => _empleado.FechaBaja)" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt57756536" style="display:none!important"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row mb-3">
+                                        <div class="col-sm-4 col-form-label">
+                                            <label>Empresa</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <_SelectList T="Empresa"
+                                            @bind-Value="_empleado.EmpresaSelected"
+                                            DataSource="_empleado.EmpresasList"
+                                            SelectorId="(x => x.Id)"
+                                            SelectorText="(x => x.Nombre)"
+                                            ShowDefaultOption="true" />
+
+                                        </div>
+                                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt017b7205" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage class="offset-sm-4 col-md-8 validation-message" For="@(() => _empleado.EmpresaSelected)" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt017b7205" style="display:none!important"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row mb-3">
+                                        <div class="col-sm-4 col-form-label">
+                                            <label>Género</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <_SelectList T="EnumGenero"
+                                            @bind-Value="_empleado.Genero"
+                                            DataSource="@(Enum.GetValues(typeof(EnumGenero)).Cast<EnumGenero>().ToList())"
+                                            SelectorId="(x => (int)x)"
+                                            SelectorText="(x => Helpers.Extensions.GetEnumDisplayName(x))"
+                                            ShowDefaultOption="true" />
+                                        </div>
+                                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0485fa86" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage class="offset-sm-4 col-md-8 validation-message" For="@(() => _empleado.Genero)" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0485fa86" style="display:none!important"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row mb-3">
+                                        <label for="inputText" class="col-sm-4 col-form-label">Comunidad</label>
+                                        <div class="col-sm-8">
+                                            <_SelectSearchList TValue="ComunidadAutonoma"
+                                            @bind-Value="_empleado.ComunidadAutonomaSelected"
+                                            DataSource="_empleado.ComunidadesAutonomasList"
+                                            EventDropdown="OnComunidadAutonomaChangeAsync"
+                                            SelectorId="(x => x.Id_INT)"
+                                            SelectorText="(x => x.Nombre)"
+                                            ShowDefaultOption="true"
+                                            Id="ComunidadAutonomaSelect" />
+                                        </div>
+                                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3cc6ab98" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage class="offset-sm-4 col-md-8 validation-message" For="@(() => _empleado.ComunidadAutonomaSelected)" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3cc6ab98" style="display:none!important"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row mb-3">
+                                        <label for="inputText" class="col-sm-4 col-form-label">Provincia</label>
+                                        <div class="col-sm-8">
+                                            <_SelectSearchList TValue="Provincia"
+                                            @bind-Value="_empleado.ProvinciaSelected"
+                                            @ref="_provinciasSelect"
+                                            DataSource="_empleado.ProvinciasList"
+                                            SelectorId="(x => x.Id_INT)"
+                                            SelectorText="(x => x.Nombre)"
+                                            ShowDefaultOption="false"
+                                            Id="ProvinciaSelect"
+                                            IsDisabled="_provinciasSelectIsDisabled" />
+                                        </div>
+                                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt42c62767" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage class="offset-sm-4 col-md-8 validation-message" For="@(() => _empleado.ProvinciaSelected)" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt42c62767" style="display:none!important"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row mb-3">
+                                        <div class="col-sm-4 col-form-label">
+                                            <label>Salario</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <_InputDoubleFormatted @bind-Value="_empleado.Salario" Class="form-control" ParsingErrorMessage="Introduzca un número válido" />
+                                        </div>
+                                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt77eaeefa" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage class="offset-sm-4 col-md-8 validation-message" style="width: 100%; margin-top: .25rem; font-size: .875em; color: #dc3545" For="@(() => _empleado.Salario)" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt77eaeefa" style="display:none!important"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row mb-3">
+                                        <div class="col-sm-4 col-form-label">
+                                            <label>Categoría</label>
+                                        </div>
+                                        <div class="col-sm-8">
+                                        </div>
+                                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5cadde7d" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage class="offset-sm-4 col-md-8 validation-message" For="@(() => _empleado.Categoria)" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5cadde7d" style="display:none!important"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="row mb-3">
+                                        <label for="inputText" class="col-sm-4 col-form-label">Comisión</label>
+                                        <div class="col-sm-8">
+                                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2a648a62" data-blazordevtools-component="InputNumber" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputNumber @bind-Value=@_empleado.Contrato.Comision class="form-control" ParsingErrorMessage="Introduzca un número válido" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2a648a62" style="display:none!important"></span>
+                                        </div>
+                                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2564e7a1" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Pages/Antia/Form.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage class="offset-sm-4 col-md-8 validation-message" For="@(() => _empleado.Contrato.Comision)" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2564e7a1" style="display:none!important"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row mb-3">
+                                  
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary me-1">Guardar</button>
+                            <button type="button" class="btn btn-secondary @AntiaTheme.DangerButtonClass" @onclick="OnCleanEmpleadoAsync"> Limpiar </button>
+                            <button type="button" class="btn btn-secondary @AntiaTheme.InfoButtonClass" @onclick="OnDeactivateEmpleadoAsync"> Desactivar </button>
+                            <button type="button" class="btn btn-secondary @AntiaTheme.InfoButtonClass" @onclick="@(EastAsianLunisolarCalendar => OnRellenarEmpleado(true))"> Rellenar </button>
+
+                        </EditForm><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt793b34b7" style="display:none!important"></span>
+                    }
+                    else
+                    {
+                        <label>Cargando...</label>    
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<br />
+<br />
+
+@code {
+
+    private string? selectedCountry;
+    private record Country(string Code, string Name);
+    private List<Country> countries = new()
+    {
+        new("us", "United States"),
+        new("gb", "United Kingdom"),
+        new("ca", "Canada"),
+        new("au", "Australia"),
+        new("de", "Germany"),
+        new("fr", "France"),
+        new("jp", "Japan"),
+        new("br", "Brazil"),
+        new("in", "India"),
+        new("mx", "Mexico")
+    };
+
+
+
+    [Parameter] public int? EmpleadoId { get; set; }
+    private EmpleadoView _empleado { get; set; }
+    private EditContext _editContext;
+    private ValidationMessageStore _messageStore;
+    private _SelectSearchList<Provincia> _provinciasSelect;
+    private bool _provinciasSelectIsDisabled = true;
+    private bool IsSubmitted = false;
+
+    protected override void OnInitialized()
+    {
+        OnRellenarEmpleado();
+
+        _editContext = new EditContext(_empleado);
+        _messageStore = new ValidationMessageStore(_editContext);
+        _editContext.OnValidationRequested += HandleValidationRequested;
+        _editContext.SetFieldCssClassProvider(new AntiaFieldClassProvider());
+
+    }
+
+    private void HandleValidationRequested(object? sender, ValidationRequestedEventArgs args)
+    {
+        _messageStore.Clear();
+
+        if (_empleado!.Nombre == "Jorge" && _empleado!.Apellidos == "Garmilla")
+            _messageStore.Add(new FieldIdentifier(_empleado, string.Empty), "No puede ser Jorge Garmilla porque soy yo");
+
+        _editContext.NotifyValidationStateChanged();
+    }
+
+    private async Task OnValidSubmit()
+    {
+        Console.WriteLine("Form Submitted Successfully!");
+        IsSubmitted = true;
+
+        // if (await _fluentValidationValidator!.ValidateAsync())
+        // {
+        //     Console.WriteLine("Form Submitted Successfully!");
+        // }
+    }
+
+    private async Task OnCleanEmpleadoAsync()
+    {
+        this.OnInitialized();
+        // await _fluentValidationValidator!.ValidateAsync();
+    }
+
+    private async Task OnDeactivateEmpleadoAsync()
+    {
+        FieldIdentifier fieldIdentifier = new FieldIdentifier(_empleado, nameof(_empleado.FechaBaja));
+
+        var isValidFechaBaja = _editContext.IsValid(fieldIdentifier);
+
+        _messageStore.Clear();
+        if (isValidFechaBaja == false)
+            _messageStore.Add(new FieldIdentifier(_empleado, string.Empty), "No se puede desactivar si la fecha de baja es inválida.");
+
+        _editContext.NotifyValidationStateChanged();
+    }
+
+    private void OnRellenarEmpleado(bool suppliedData = false)
+    {
+
+        if (suppliedData == false)
+        {
+            _empleado = new EmpleadoView()
+            {
+                Contrato = new ContratoView(),
+                EmpresasList = dataService.ReturnEmpresas(),
+                ComunidadesAutonomasList = dataService.ReturnComunidadAutonomas(),
+                FechaAlta = DateTime.Now,
+                ProvinciaSelected = null
+            };
+
+            _provinciasSelectIsDisabled = true;
+        }
+        else
+        {
+            _empleado.Nombre = "Ana";
+            _empleado.Apellidos = "García López";
+            _empleado.Email = "ana@opentext.com";
+            _empleado.Password = "Password123!";
+            _empleado.Genero = EnumGenero.Femenino;
+            _empleado.Salario = 3500.50;
+            _empleado.FechaAlta = DateTime.Now.AddDays(2);
+            _empleado.FechaBaja = DateTime.Now.AddDays(3);
+            _empleado.EmpresaSelected = DataServiceThisPage.ReturnEmpresas()[0];
+            _empleado.ComunidadAutonomaSelected = DataServiceThisPage.ReturnComunidadAutonomas()[1];
+            _empleado.ProvinciaSelected = DataServiceThisPage.ReturnProvincias().Where(x => x.ComunidadAutonomaId_INT == int.Parse(_empleado.ComunidadesAutonomasList[0].Id)).First();
+
+            _provinciasSelectIsDisabled = false;
+        }
+    }
+    
+    private async Task OnComunidadAutonomaChangeAsync(string comunidadId)
+    {
+        _empleado.ProvinciasList = DataServiceThisPage.ReturnProvincias().Where(x => x.ComunidadAutonomaId_INT == int.Parse(comunidadId)).ToList();
+        _empleado.ProvinciaSelected = _empleado.ProvinciasList.First();
+        _provinciasSelectIsDisabled = false;
+
+        _editContext.NotifyFieldChanged(new FieldIdentifier(_empleado, nameof(_empleado.ComunidadAutonomaSelected)));
+        await InvokeAsync(StateHasChanged);// no parece necesario
+    }
+
+    public void Dispose()
+    {
+        if (_editContext is not null)
+        {
+            _editContext.OnValidationRequested -= HandleValidationRequested;
+        }
+    }
+
+}
+
+<span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6ada04b7" style="display:none!important"></span>
+@* Injected by BlazorDeveloperTools (Dev-only) - Close *@

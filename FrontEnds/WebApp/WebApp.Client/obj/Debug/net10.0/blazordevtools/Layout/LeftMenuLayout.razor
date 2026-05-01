@@ -1,0 +1,119 @@
+@inherits LayoutComponentBase
+@* @layout Layout.MainLayout *@
+@using Microsoft.AspNetCore.Authorization
+@inject NavigationManager Navigation
+@inject NavigationManager NavigationManager
+@attribute [Authorize]
+
+
+
+
+
+@* <BbSidebarProvider>
+    <BbSidebar>
+        <BbSidebarContent>
+            <BbSidebarGroup>
+                <BbSidebarGroupLabel>Antía</BbSidebarGroupLabel>
+                <BbSidebarMenu>
+                    <BbSidebarMenuItem><BbSidebarMenuButton IsActive="true" Href="/antia/test"><LucideIcon Name="navigation" />Test</BbSidebarMenuButton></BbSidebarMenuItem>
+                    <BbSidebarMenuItem><BbSidebarMenuButton IsActive="true" Href="/antia/environment"><LucideIcon Name="home" />Environment</BbSidebarMenuButton></BbSidebarMenuItem>
+                    <BbSidebarMenuItem><BbSidebarMenuButton IsActive="true" Href="/antia/jobs"><LucideIcon Name="home" />Jobs</BbSidebarMenuButton></BbSidebarMenuItem>
+                </BbSidebarMenu>
+            </BbSidebarGroup>
+            <BbSidebarGroup>
+
+                <BbSidebarGroupLabel>Blueprint</BbSidebarGroupLabel>
+                <BbSidebarMenu>
+                    <BbSidebarMenuItem>
+
+                        <BbSidebarMenuButton IsActive="true">
+                            <LucideIcon Name="home" />Dashboard
+                        </BbSidebarMenuButton>
+
+                    </BbSidebarMenuItem>
+                    <BbSidebarMenuItem>
+
+                        <BbSidebarMenuButton IsActive="true">
+                            <LucideIcon Name="home" />Dashboard
+                        </BbSidebarMenuButton>
+
+                    </BbSidebarMenuItem>
+                </BbSidebarMenu>
+            </BbSidebarGroup>
+        </BbSidebarContent>
+    </BbSidebar>
+</BbSidebarProvider>  *@
+
+
+
+@* Injected by BlazorDeveloperTools (Dev-only) - Open *@
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3b3e5ada" data-blazordevtools-component="LeftMenuLayout" data-blazordevtools-file="Layout/LeftMenuLayout.razor" style="display:none!important"></span>
+<div class="container py-6">
+    <div class="flex flex-col lg:flex-row gap-8">
+        <!-- Sidebar Navigation -->
+        <aside class="lg:w-64 shrink-0">
+           
+            <nav class="sticky top-20 space-y-1">
+                <h4 class="font-semibold mb-3">Antía</h4>
+
+
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt33429625" data-blazordevtools-component="NavLink" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><NavLink href="/antia/test" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3fb2e8d8" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="mouse-pointer-click" Size="16" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3fb2e8d8" style="display:none!important"></span>
+                    TEST
+                </NavLink><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt33429625" style="display:none!important"></span>
+
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4b4c3788" data-blazordevtools-component="NavLink" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><NavLink href="/antia/environment" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3e7ea2f6" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="mouse-pointer-click" Size="16" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3e7ea2f6" style="display:none!important"></span>
+                    Environment and cascade parameter
+                </NavLink><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4b4c3788" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt487e3a1c" data-blazordevtools-component="NavLink" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><NavLink href="/initializator" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5b4d1b97" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="mouse-pointer-click" Size="16" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5b4d1b97" style="display:none!important"></span>
+                    Initializator (api call)
+                </NavLink><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt487e3a1c" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5e40829b" data-blazordevtools-component="NavLink" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><NavLink href="/initializatorTwo" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5b4d1bf6" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="mouse-pointer-click" Size="16" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5b4d1bf6" style="display:none!important"></span>
+                    Initializator #2
+                </NavLink><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5e40829b" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt282bd1ff" data-blazordevtools-component="NavLink" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><NavLink href="/pagecomponenttree" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt475a5845" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="mouse-pointer-click" Size="16" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt475a5845" style="display:none!important"></span>
+                    Page Component Tree
+                </NavLink><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt282bd1ff" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3f012e4e" data-blazordevtools-component="NavLink" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><NavLink href="/renderfragmentbasic" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt475a59ea" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="mouse-pointer-click" Size="16" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt475a59ea" style="display:none!important"></span>
+                    Render Fragment Basic
+                </NavLink><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3f012e4e" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt66aa7b44" data-blazordevtools-component="NavLink" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><NavLink href="/renderfragmentNonGeneric" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt259ddcc3" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="mouse-pointer-click" Size="16" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt259ddcc3" style="display:none!important"></span>
+                    Render Fragment Non Generic
+                </NavLink><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt66aa7b44" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt553ae167" data-blazordevtools-component="NavLink" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><NavLink href="/renderfragmentGeneric" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt67cdf297" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="mouse-pointer-click" Size="16" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt67cdf297" style="display:none!important"></span>
+                    Render Fragment Generic
+                </NavLink><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt553ae167" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt74b06df6" data-blazordevtools-component="NavLink" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><NavLink href="/cssPage" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt259ddb87" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="mouse-pointer-click" Size="16" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt259ddb87" style="display:none!important"></span>
+                    CSS Sample
+                </NavLink><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt74b06df6" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt1af0c318" data-blazordevtools-component="NavLink" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><NavLink href="/AttributeSplatting" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt7a8c700e" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="mouse-pointer-click" Size="16" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt7a8c700e" style="display:none!important"></span>
+                    Attribute Splatting
+                </NavLink><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt1af0c318" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0782008b" data-blazordevtools-component="NavLink" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><NavLink href="/modal" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4024a665" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="mouse-pointer-click" Size="16" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4024a665" style="display:none!important"></span>
+                    initializator
+                </NavLink><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0782008b" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt67dec0c6" data-blazordevtools-component="NavLink" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><NavLink href="/initializator" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt77be7354" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Layout/LeftMenuLayout.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="mouse-pointer-click" Size="16" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt77be7354" style="display:none!important"></span>
+                    Modal
+                </NavLink><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt67dec0c6" style="display:none!important"></span>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="flex-1 min-w-0">
+            @Body
+        </main>
+    </div>
+</div>
+<span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3b3e5ada" style="display:none!important"></span>
+@* Injected by BlazorDeveloperTools (Dev-only) - Close *@

@@ -1,0 +1,193 @@
+@page "/"
+@using System.Reflection
+@using System.Globalization
+@using Microsoft.AspNetCore.Authorization
+@inject NavigationManager Navigation
+@inject IConfiguration Configuration
+@inherits AntiaComponentBase
+@attribute [Authorize]
+@inject NavigationManager NavigationManager
+
+@* Injected by BlazorDeveloperTools (Dev-only) - Open *@
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt269f49fb" data-blazordevtools-component="Index" data-blazordevtools-file="Pages/Antia/Index.razor" style="display:none!important"></span>
+<PageTitle>Home - BlazorBluePrintTest</PageTitle>
+
+<div class="container py-10">
+    <div class="mx-auto max-w-3xl space-y-8">
+        <!-- Hero Section -->
+        <div class="text-center space-y-4">
+            <div class="flex flex-col items-center gap-2">
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4a40d2d1" data-blazordevtools-component="BbBadge" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbBadge Variant="BadgeVariant.Secondary">BlazorBlueprint Installed</BbBadge><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4a40d2d1" style="display:none!important"></span>
+                <p class="text-xs text-muted-foreground">
+                    Components @componentsVersion &middot; Primitives @primitivesVersion
+                </p>
+            </div>
+
+            <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
+                Welcome to BlazorBlueprint
+            </h1>
+            <p class="text-xl text-muted-foreground">
+                Your Blazor app is ready with 80+ beautiful components.
+            </p>
+        </div>
+
+        <!-- Quick Demo -->
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt44ffd3b3" data-blazordevtools-component="BbCard" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCard>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3f635919" data-blazordevtools-component="BbCardHeader" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardHeader>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt157808e7" data-blazordevtools-component="BbCardTitle" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardTitle>Quick Demo</BbCardTitle><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt157808e7" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6475feb0" data-blazordevtools-component="BbCardDescription" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardDescription>Here are some BlazorBlueprint components in action.</BbCardDescription><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6475feb0" style="display:none!important"></span>
+            </BbCardHeader><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3f635919" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6e16adb8" data-blazordevtools-component="BbCardContent" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardContent class="space-y-6">
+                <!-- Buttons -->
+                <div class="space-y-2">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0a24d54f" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel>Buttons</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0a24d54f" style="display:none!important"></span>
+                    <div class="flex flex-wrap gap-2">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt22ccb179" data-blazordevtools-component="BbButton" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbButton>Primary</BbButton><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt22ccb179" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5011f963" data-blazordevtools-component="BbButton" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbButton Variant="ButtonVariant.Secondary">Secondary</BbButton><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5011f963" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt681b9b71" data-blazordevtools-component="BbButton" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbButton Variant="ButtonVariant.Outline">Outline</BbButton><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt681b9b71" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0ac30fef" data-blazordevtools-component="BbButton" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbButton Variant="ButtonVariant.Ghost">Ghost</BbButton><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0ac30fef" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt0a7894e7" data-blazordevtools-component="BbButton" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbButton Variant="ButtonVariant.Destructive">Destructive</BbButton><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt0a7894e7" style="display:none!important"></span>
+                    </div>
+                </div>
+
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2b715a0e" data-blazordevtools-component="BbSeparator" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSeparator /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2b715a0e" style="display:none!important"></span>
+
+                <!-- Input -->
+                <div class="space-y-2">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt653bec05" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="demo-input">Input</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt653bec05" style="display:none!important"></span>
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt07e1cd86" data-blazordevtools-component="BbInput" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbInput id="demo-input" Placeholder="Type something..." @bind-Value="inputValue" UpdateTiming="UpdateTiming.Immediate" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt07e1cd86" style="display:none!important"></span>
+                    @if (!string.IsNullOrEmpty(inputValue))
+                    {
+                        <p class="text-sm text-muted-foreground">You typed: @inputValue</p>
+                    }
+                </div>
+
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt70cb4bb5" data-blazordevtools-component="BbSeparator" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSeparator /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt70cb4bb5" style="display:none!important"></span>
+
+                <!-- Checkbox and Switch -->
+                <div class="space-y-4">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt20b7e624" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel>Toggle Controls</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt20b7e624" style="display:none!important"></span>
+                    <div class="flex items-center space-x-2">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2f6c0892" data-blazordevtools-component="BbCheckbox" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCheckbox id="terms" @bind-Checked="agreeTerms" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2f6c0892" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt711b9e6d" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="terms" class="font-normal">I agree to the terms and conditions</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt711b9e6d" style="display:none!important"></span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6add3356" data-blazordevtools-component="BbSwitch" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSwitch id="notifications" @bind-Checked="notifications" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6add3356" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2561e63f" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel For="notifications" class="font-normal">Enable notifications</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2561e63f" style="display:none!important"></span>
+                    </div>
+                </div>
+
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6ff56053" data-blazordevtools-component="BbSeparator" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSeparator /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6ff56053" style="display:none!important"></span>
+
+                <!-- Badges -->
+                <div class="space-y-2">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3b2a1427" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel>Badges</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3b2a1427" style="display:none!important"></span>
+                    <div class="flex flex-wrap gap-2">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5ee1ecdb" data-blazordevtools-component="BbBadge" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbBadge>Default</BbBadge><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5ee1ecdb" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5677f4db" data-blazordevtools-component="BbBadge" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbBadge Variant="BadgeVariant.Secondary">Secondary</BbBadge><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5677f4db" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt3e6e52b3" data-blazordevtools-component="BbBadge" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbBadge Variant="BadgeVariant.Outline">Outline</BbBadge><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt3e6e52b3" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt08bf1399" data-blazordevtools-component="BbBadge" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbBadge Variant="BadgeVariant.Destructive">Destructive</BbBadge><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt08bf1399" style="display:none!important"></span>
+                    </div>
+                </div>
+
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt21de243c" data-blazordevtools-component="BbSeparator" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSeparator /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt21de243c" style="display:none!important"></span>
+
+                <!-- Dialog Example -->
+                <div class="space-y-2">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt40609d41" data-blazordevtools-component="BbLabel" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbLabel>Dialog</BbLabel><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt40609d41" style="display:none!important"></span>
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt05b8171e" data-blazordevtools-component="BbDialog" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbDialog @bind-Open="dialogOpen">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2438364b" data-blazordevtools-component="BbDialogTrigger" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbDialogTrigger>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt1b4c844b" data-blazordevtools-component="BbButton" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbButton Variant="ButtonVariant.Outline">Open Dialog</BbButton><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt1b4c844b" style="display:none!important"></span>
+                        </BbDialogTrigger><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2438364b" style="display:none!important"></span>
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt481f89a5" data-blazordevtools-component="BbDialogContent" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbDialogContent>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt517f9cb6" data-blazordevtools-component="BbDialogHeader" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbDialogHeader>
+                                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4d8f168d" data-blazordevtools-component="BbDialogTitle" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbDialogTitle>Welcome!</BbDialogTitle><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4d8f168d" style="display:none!important"></span>
+                                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4a769ccc" data-blazordevtools-component="BbDialogDescription" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbDialogDescription>
+                                    This is a dialog component. It can contain any content.
+                                </BbDialogDescription><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4a769ccc" style="display:none!important"></span>
+                            </BbDialogHeader><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt517f9cb6" style="display:none!important"></span>
+                            <div class="py-4">
+                                <p>Dialogs are great for confirmations, forms, or displaying important information.</p>
+                            </div>
+                            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2eced2bb" data-blazordevtools-component="BbDialogFooter" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbDialogFooter>
+                                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt186390ed" data-blazordevtools-component="BbButton" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbButton Variant="ButtonVariant.Outline" @onclick="() => dialogOpen = false">Cancel</BbButton><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt186390ed" style="display:none!important"></span>
+                                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2fb954dd" data-blazordevtools-component="BbButton" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbButton @onclick="() => dialogOpen = false">Continue</BbButton><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2fb954dd" style="display:none!important"></span>
+                            </BbDialogFooter><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2eced2bb" style="display:none!important"></span>
+                        </BbDialogContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt481f89a5" style="display:none!important"></span>
+                    </BbDialog><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt05b8171e" style="display:none!important"></span>
+                </div>
+
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5ff75b0f" data-blazordevtools-component="BbSeparator" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbSeparator /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5ff75b0f" style="display:none!important"></span>
+
+                <!-- Alert -->
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5355a817" data-blazordevtools-component="BbAlert" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbAlert>
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt43485b1f" data-blazordevtools-component="BbAlertTitle" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbAlertTitle>Everything is working!</BbAlertTitle><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt43485b1f" style="display:none!important"></span>
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt04d35abc" data-blazordevtools-component="BbAlertDescription" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbAlertDescription>
+                        BlazorBlueprint components are ready to use. Start building something amazing.
+                    </BbAlertDescription><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt04d35abc" style="display:none!important"></span>
+                </BbAlert><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5355a817" style="display:none!important"></span>
+            </BbCardContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6e16adb8" style="display:none!important"></span>
+        </BbCard><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt44ffd3b3" style="display:none!important"></span>
+
+        <!-- Next Steps -->
+        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt003702f3" data-blazordevtools-component="BbCard" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCard>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6954f6d2" data-blazordevtools-component="BbCardHeader" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardHeader>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4f93ee30" data-blazordevtools-component="BbCardTitle" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardTitle>Next Steps</BbCardTitle><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4f93ee30" style="display:none!important"></span>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt486a19cf" data-blazordevtools-component="BbCardDescription" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardDescription>Resources to help you get started.</BbCardDescription><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt486a19cf" style="display:none!important"></span>
+            </BbCardHeader><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6954f6d2" style="display:none!important"></span>
+            <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt74817d33" data-blazordevtools-component="BbCardContent" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><BbCardContent class="grid gap-4 sm:grid-cols-2">
+                <a href="https://blazorblueprintui.com/docs" target="_blank" class="group block space-y-2 rounded-lg border p-4 hover:bg-accent transition-colors">
+                    <div class="flex items-center gap-2">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6199ddac" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="book-open" Size="20" class="text-primary" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6199ddac" style="display:none!important"></span>
+                        <h3 class="font-semibold">Documentation</h3>
+                    </div>
+                    <p class="text-sm text-muted-foreground">
+                        Learn how to use all 80+ components.
+                    </p>
+                </a>
+                <a href="https://blazorblueprintui.com/components" target="_blank" class="group block space-y-2 rounded-lg border p-4 hover:bg-accent transition-colors">
+                    <div class="flex items-center gap-2">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt04415206" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="layout-grid" Size="20" class="text-primary" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt04415206" style="display:none!important"></span>
+                        <h3 class="font-semibold">Components</h3>
+                    </div>
+                    <p class="text-sm text-muted-foreground">
+                        Browse the complete component library.
+                    </p>
+                </a>
+                <a href="/showcase/buttons" class="group block space-y-2 rounded-lg border p-4 hover:bg-accent transition-colors">
+                    <div class="flex items-center gap-2">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt6fec958c" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="eye" Size="20" class="text-primary" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt6fec958c" style="display:none!important"></span>
+                        <h3 class="font-semibold">Showcase</h3>
+                    </div>
+                    <p class="text-sm text-muted-foreground">
+                        See components in action with examples.
+                    </p>
+                </a>
+                <a href="https://github.com/blazorblueprintui/ui" target="_blank" class="group block space-y-2 rounded-lg border p-4 hover:bg-accent transition-colors">
+                    <div class="flex items-center gap-2">
+                        <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2a9dab90" data-blazordevtools-component="LucideIcon" data-blazordevtools-file="Pages/Antia/Index.razor" data-blazordevtools-nested="true" style="display:none!important"></span><LucideIcon Name="github" Size="20" class="text-primary" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2a9dab90" style="display:none!important"></span>
+                        <h3 class="font-semibold">GitHub</h3>
+                    </div>
+                    <p class="text-sm text-muted-foreground">
+                        Star the repo and contribute.
+                    </p>
+                </a>
+            </BbCardContent><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt74817d33" style="display:none!important"></span>
+        </BbCard><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt003702f3" style="display:none!important"></span>
+    </div>
+</div>
+
+@code {
+    private string? inputValue;
+    private bool agreeTerms;
+    private bool notifications = true;
+    private bool dialogOpen;
+
+    private static string componentsVersion = typeof(BbButton).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion?.Split('+')[0] ?? "?";
+
+    private static string primitivesVersion = typeof(IPortalService).Assembly.GetCustomAttribute<AssemblyInformationalVersionAttribute>()?.InformationalVersion?.Split('+')[0] ?? "?";
+
+}
+
+<span data-blazordevtools-marker="close" data-blazordevtools-id="bdt269f49fb" style="display:none!important"></span>
+@* Injected by BlazorDeveloperTools (Dev-only) - Close *@

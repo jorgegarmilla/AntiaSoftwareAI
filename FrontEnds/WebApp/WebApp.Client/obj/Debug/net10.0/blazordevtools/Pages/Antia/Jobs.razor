@@ -1,0 +1,115 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Authorization
+@using BlazorSortableList
+@page "/antia/jobs"
+@attribute [Authorize]
+@inherits AntiaComponentBase
+
+@* Injected by BlazorDeveloperTools (Dev-only) - Open *@
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt7d341dbd" data-blazordevtools-component="Jobs" data-blazordevtools-file="Pages/Antia/Jobs.razor" style="display:none!important"></span>
+<_PageTitle Title="Jobs" BreadcrumbMenuGroupName="Template" BreadcrumbMenuOptionName="Jobs"></_PageTitle>
+
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2718233b" data-blazordevtools-component="EditForm" data-blazordevtools-file="Pages/Antia/Jobs.razor" data-blazordevtools-nested="true" style="display:none!important"></span><EditForm EditContext="_editContext" FormName="NewJobForm" OnValidSubmit="OnValidSubmit">
+
+        <div class="row">
+        <div class="col-md-6">
+            <div class="row mb-3">
+                <label for="inputText" class="col-sm-4 col-form-label">Nombre</label>
+                <div class="col-sm-8">
+                    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt4471882a" data-blazordevtools-component="InputText" data-blazordevtools-file="Pages/Antia/Jobs.razor" data-blazordevtools-nested="true" style="display:none!important"></span><InputText @bind-Value=@_jobModelView.Description class="form-control col-sm-4"  maxlength="50"></InputText><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt4471882a" style="display:none!important"></span>
+                </div>
+                <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt12ecaaef" data-blazordevtools-component="ValidationMessage" data-blazordevtools-file="Pages/Antia/Jobs.razor" data-blazordevtools-nested="true" style="display:none!important"></span><ValidationMessage class="offset-sm-4 col-md-8 validation-message" For="@(() => _jobModelView.Description)" /><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt12ecaaef" style="display:none!important"></span>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary me-1">Guardar</button>
+
+</EditForm><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2718233b" style="display:none!important"></span>
+
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt5083d79b" data-blazordevtools-component="SortableList" data-blazordevtools-file="Pages/Antia/Jobs.razor" data-blazordevtools-nested="true" style="display:none!important"></span><SortableList Id="sortable" Items="_jobModelViewList" OnUpdate="@SortList" Context="job">
+    <span data-blazordevtools-marker="open" data-blazordevtools-id="bdt2f9336b0" data-blazordevtools-component="SortableItemTemplate" data-blazordevtools-file="Pages/Antia/Jobs.razor" data-blazordevtools-nested="true" style="display:none!important"></span><SortableItemTemplate>
+        <div class="antia-card">
+            <i class="bi bi-grip-vertical antia-card-element" style="color: darkgray"></i>
+
+            <p class="ml-1 antia-card-element" style="color: white">@job.Description</p>
+       </div> 
+    </SortableItemTemplate><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt2f9336b0" style="display:none!important"></span>
+</SortableList><span data-blazordevtools-marker="close" data-blazordevtools-id="bdt5083d79b" style="display:none!important"></span>
+
+@code {
+
+    [Inject]
+    private IApiProxy ApiProxy { get; set; } = default!;
+
+    [Inject]
+    private ResultState ResultState { get; set; } = default!;
+
+    private EditContext _editContext;
+    private List<JobModelView> _jobModelViewList = new List<JobModelView>();
+    private JobModelView _jobModelView = null;
+    // private FluentValidationValidator? _fluentValidationValidator;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _jobModelView = new JobModelView();
+        _editContext = new EditContext(_jobModelView);
+        _jobModelViewList = await ApiProxy.GetJobs();
+
+        ResultState.SetResult(_jobModelViewList.Count());
+    }
+
+    private async Task OnValidSubmit()
+    {
+        // if (await _fluentValidationValidator!.ValidateAsync())
+        // {
+            JobModelView newJob = new JobModelView
+            {
+                Description = _jobModelView.Description,
+                Id = _jobModelViewList.Max(j => j.Id) + 1,
+                Status = EJobStatus.Pending 
+            };
+
+            await ApiProxy.AddJob(newJob);
+            _jobModelViewList.Add(newJob);
+            ResultState.SetResult(_jobModelViewList.Count());
+
+            Console.WriteLine("Form Submitted Successfully!");
+        // }
+    }
+
+    private void SortList((int oldIndex, int newIndex) indices)
+    {
+        // deconstruct the tuple
+        var (oldIndex, newIndex) = indices;
+
+        var items = _jobModelViewList;
+        var itemToMove = items[oldIndex];
+        items.RemoveAt(oldIndex);
+
+        if (newIndex < items.Count)
+        {
+            items.Insert(newIndex, itemToMove);
+        }
+        else
+        {
+            items.Add(itemToMove);
+        }
+
+        StateHasChanged();
+    }
+
+
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender == true)
+        {
+            //await Task.Delay(1000);
+        }
+    }
+}
+
+<span data-blazordevtools-marker="close" data-blazordevtools-id="bdt7d341dbd" style="display:none!important"></span>
+@* Injected by BlazorDeveloperTools (Dev-only) - Close *@

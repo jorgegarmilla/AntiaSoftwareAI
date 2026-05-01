@@ -1,0 +1,17 @@
+﻿@* 
+@page "/Account/Logout"
+@using Microsoft.AspNetCore.Identity
+@using WebApp.Data
+@inject NavigationManager NavigationManager
+@inject IdentityRedirectManager RedirectManager
+@inject SignInManager<ApplicationUser> signInManager
+
+@code {
+
+    protected override async Task OnInitializedAsync()
+    {
+        await signInManager.SignOutAsync();
+        RedirectManager.RedirectTo("Account/Login");
+    }
+}
+ *@

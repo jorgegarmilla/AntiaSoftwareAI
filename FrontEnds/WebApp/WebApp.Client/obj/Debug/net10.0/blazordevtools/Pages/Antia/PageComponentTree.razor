@@ -1,0 +1,82 @@
+﻿@using System.Globalization
+@using Microsoft.AspNetCore.Authorization
+@using WebApp.Client.ModelView
+@page "/pagecomponenttree"
+@attribute [Authorize]
+@inherits AntiaComponentBase
+
+@* Injected by BlazorDeveloperTools (Dev-only) - Open *@
+<span data-blazordevtools-marker="open" data-blazordevtools-id="bdt14fd9c45" data-blazordevtools-component="PageComponentTree" data-blazordevtools-file="Pages/Antia/PageComponentTree.razor" style="display:none!important"></span>
+<_PageTitle Title="PageComponentTree" BreadcrumbMenuGroupName="Template" BreadcrumbMenuOptionName="PageComponentTree"></_PageTitle>
+
+@if (AssignedRenderMode is null)
+{
+    <label>The render mode is Static Server</label>
+}
+else
+{
+    <label>The render mode is Interactive Server, WebAssembly, or Auto</label>
+}
+
+<br />
+<br />
+
+<button type="button" class="btn btn-secondary btn-sm" @onclick='() => OnShowRole("A")'> Ver Rol A </button>
+<button type="button" class="btn btn-secondary btn-sm" @onclick='() => OnShowRole("B")'> Ver Rol B </button>
+<button type="button" class="btn btn-secondary btn-sm" @onclick='() => OnShowRole("C")'> Ver Rol C </button>
+
+<_Rol _rol="@_rol" RoleCreated="OnRoleCreated">Prueba de ChildContent!!!</_Rol>
+
+<_Rol _rol="@_rolChainedBind" RoleCreated="OnRoleCreated" @bind-FechaAlta="_rolChainedBind.FechaDeAlta">Prueba!!!</_Rol>
+
+@foreach (var role in rolViews)
+{
+    <_Rol _rol="@role" @ref="rolesRef" RoleCreated="OnRoleCreated"></_Rol>
+}
+
+@code {
+
+    private RolView _rol = null;
+
+    private RolView _rolChainedBind = null;
+
+    private List<_Rol> _rolesComponentList = new List<_Rol>();
+    private _Rol rolesRef { set { _rolesComponentList.Add(value); } }
+    private List<RolView> rolViews = new List<RolView>()
+    {
+        new RolView() { Nombre = "L1", Salario = 11 },
+        new RolView() { Nombre = "L2", Salario = 22 },
+        new RolView() { Nombre = "L3", Salario = 33 },
+    };
+
+
+    private async Task OnRoleCreated(RolView role)
+    {
+        // _rolChainedBind.FechaDeAlta (chained object) and role.FechaDeAlta (event parameter) should be different here because GuardarFuera() changes it.
+
+        // _rolesComponentList contains all the _Rol component references created in the foreach loop.
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _rol = new RolView() { Nombre = "Z", Salario = 1 };
+        _rolChainedBind = new RolView() { Nombre = "XX", Salario = 12345, FechaDeAlta = DateTime.UtcNow };
+    }
+
+    private async Task OnShowRole(string role)
+    {
+        if (role == "A")
+            _rol = new RolView() { Nombre = "A", Salario = 101 };
+
+        if (role == "B")
+            _rol = new RolView() { Nombre = "B", Salario = 341 };
+
+        if (role == "C")
+            _rol = new RolView() { Nombre = "C", Salario = 222 };
+
+    }
+
+}
+
+<span data-blazordevtools-marker="close" data-blazordevtools-id="bdt14fd9c45" style="display:none!important"></span>
+@* Injected by BlazorDeveloperTools (Dev-only) - Close *@
