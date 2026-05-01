@@ -1,1 +1,2 @@
+[![Board Status](https://dev.azure.com/jorgegarmilla/Empty/_apis/work/boardbadge/00000000-0000-0000-0000-000000000000?columnOptions=1)](https://dev.azure.com/jorgegarmilla/Empty/_workitems/recentlyupdated/)
 # Empty
