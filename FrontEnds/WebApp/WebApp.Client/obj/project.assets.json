@@ -228,7 +228,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.App.Internal.Assets/10.0.7": {
+      "Microsoft.AspNetCore.App.Internal.Assets/10.0.5": {
         "type": "package",
         "build": {
           "build/Microsoft.AspNetCore.App.Internal.Assets.props": {},
@@ -479,7 +479,7 @@
           }
         }
       },
-      "Microsoft.DotNet.HotReload.WebAssembly.Browser/10.0.203": {
+      "Microsoft.DotNet.HotReload.WebAssembly.Browser/10.0.201": {
         "type": "package",
         "compile": {
           "lib/net10.0/Microsoft.DotNet.HotReload.WebAssembly.Browser.dll": {}
@@ -927,13 +927,13 @@
           }
         }
       },
-      "Microsoft.NET.ILLink.Tasks/10.0.7": {
+      "Microsoft.NET.ILLink.Tasks/10.0.5": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
       },
-      "Microsoft.NET.Sdk.WebAssembly.Pack/10.0.7": {
+      "Microsoft.NET.Sdk.WebAssembly.Pack/10.0.5": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.props": {},
@@ -1168,7 +1168,7 @@
           }
         }
       },
-      "Microsoft.AspNetCore.App.Internal.Assets/10.0.7": {
+      "Microsoft.AspNetCore.App.Internal.Assets/10.0.5": {
         "type": "package",
         "build": {
           "build/Microsoft.AspNetCore.App.Internal.Assets.props": {},
@@ -1419,7 +1419,7 @@
           }
         }
       },
-      "Microsoft.DotNet.HotReload.WebAssembly.Browser/10.0.203": {
+      "Microsoft.DotNet.HotReload.WebAssembly.Browser/10.0.201": {
         "type": "package",
         "compile": {
           "lib/net10.0/Microsoft.DotNet.HotReload.WebAssembly.Browser.dll": {}
@@ -1867,13 +1867,13 @@
           }
         }
       },
-      "Microsoft.NET.ILLink.Tasks/10.0.7": {
+      "Microsoft.NET.ILLink.Tasks/10.0.5": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.ILLink.Tasks.props": {}
         }
       },
-      "Microsoft.NET.Sdk.WebAssembly.Pack/10.0.7": {
+      "Microsoft.NET.Sdk.WebAssembly.Pack/10.0.5": {
         "type": "package",
         "build": {
           "build/Microsoft.NET.Sdk.WebAssembly.Pack.props": {},
@@ -2162,10 +2162,10 @@
         "readme.md"
       ]
     },
-    "Microsoft.AspNetCore.App.Internal.Assets/10.0.7": {
-      "sha512": "ao3i+ks0uOQ7FWacI1hqHkUczebmXrGkUB63Xhkc34QbSzG9nYBlDv9v5l6rtCrHMsDW+13kZlpJrSj1HXddqg==",
+    "Microsoft.AspNetCore.App.Internal.Assets/10.0.5": {
+      "sha512": "Oxw9Ps1/nd6c/EMCAI13AeJFEqXezAvCEOshMjUWmL7LeGirHJNzytR2e/3jINYg0j2TmPvNUowGHf+gp8zDSQ==",
       "type": "package",
-      "path": "microsoft.aspnetcore.app.internal.assets/10.0.7",
+      "path": "microsoft.aspnetcore.app.internal.assets/10.0.5",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2181,7 +2181,7 @@
         "build/Microsoft.AspNetCore.App.Internal.Assets.targets",
         "buildMultiTargeting/Microsoft.AspNetCore.App.Internal.Assets.targets",
         "buildTransitive/Microsoft.AspNetCore.App.Internal.Assets.targets",
-        "microsoft.aspnetcore.app.internal.assets.10.0.7.nupkg.sha512",
+        "microsoft.aspnetcore.app.internal.assets.10.0.5.nupkg.sha512",
         "microsoft.aspnetcore.app.internal.assets.nuspec"
       ]
     },
@@ -2404,10 +2404,10 @@
         "microsoft.aspnetcore.webutilities.nuspec"
       ]
     },
-    "Microsoft.DotNet.HotReload.WebAssembly.Browser/10.0.203": {
-      "sha512": "OFnGv+vIMJdTX9U1gTIwOeE3isTt5MSy+hFpRvXceYZ2TBadvxWunKL1FHMBtY/fRXbJTtBKhByybknDQwhwgw==",
+    "Microsoft.DotNet.HotReload.WebAssembly.Browser/10.0.201": {
+      "sha512": "4EAMH3CqtVwVm7Sx4DnNtZj/J0b+A1YGcTnCL6prhQ8ZHlwbVtZ3RmSyJdi85mSnLl+u94aVr8fElRGkjZkKmw==",
       "type": "package",
-      "path": "microsoft.dotnet.hotreload.webassembly.browser/10.0.203",
+      "path": "microsoft.dotnet.hotreload.webassembly.browser/10.0.201",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2418,7 +2418,7 @@
         "buildMultiTargeting/Microsoft.DotNet.HotReload.WebAssembly.Browser.props",
         "buildTransitive/Microsoft.DotNet.HotReload.WebAssembly.Browser.props",
         "lib/net10.0/Microsoft.DotNet.HotReload.WebAssembly.Browser.dll",
-        "microsoft.dotnet.hotreload.webassembly.browser.10.0.203.nupkg.sha512",
+        "microsoft.dotnet.hotreload.webassembly.browser.10.0.201.nupkg.sha512",
         "microsoft.dotnet.hotreload.webassembly.browser.nuspec",
         "staticwebassets/Microsoft.DotNet.HotReload.WebAssembly.Browser.99zm1jdh75.lib.module.js"
       ]
@@ -3096,10 +3096,10 @@
         "microsoft.net.http.headers.nuspec"
       ]
     },
-    "Microsoft.NET.ILLink.Tasks/10.0.7": {
-      "sha512": "AA/yhzFHNtQZXLdqjzujPy25G8EWwGWsAnxOE2zYSBoT/8QHP6ketN3CToD3DFreO653ipUwnKHo22B8AlBMCw==",
+    "Microsoft.NET.ILLink.Tasks/10.0.5": {
+      "sha512": "A+5ZuQ0f449tM+MQrhf6R9ZX7lYpjk/ODEwLYKrnF6111rtARx8fVsm4YznUnQiKnnXfaXNBqgxmil6RW3L3SA==",
       "type": "package",
-      "path": "microsoft.net.illink.tasks/10.0.7",
+      "path": "microsoft.net.illink.tasks/10.0.5",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -3112,7 +3112,7 @@
         "build/Microsoft.NET.ILLink.Analyzers.props",
         "build/Microsoft.NET.ILLink.Tasks.props",
         "build/Microsoft.NET.ILLink.targets",
-        "microsoft.net.illink.tasks.10.0.7.nupkg.sha512",
+        "microsoft.net.illink.tasks.10.0.5.nupkg.sha512",
         "microsoft.net.illink.tasks.nuspec",
         "tools/net/ILLink.Tasks.deps.json",
         "tools/net/ILLink.Tasks.dll",
@@ -3146,10 +3146,10 @@
         "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.NET.Sdk.WebAssembly.Pack/10.0.7": {
-      "sha512": "FXBvIwh/CAORqmO75qTy+mnTUuIYidOdNHYhMky0yLcsK6DNFBIP+eeiglhMggtatUSCnAzrCqb1EdwvZq+KAg==",
+    "Microsoft.NET.Sdk.WebAssembly.Pack/10.0.5": {
+      "sha512": "377VBqkGr00cspqu3dQPtj+mbyIxTBJV40ZAMAIrZXj7M+R6BjRmFMyNvLbGZ+enrsaaQNEKOXxNEhioJmfB5Q==",
       "type": "package",
-      "path": "microsoft.net.sdk.webassembly.pack/10.0.7",
+      "path": "microsoft.net.sdk.webassembly.pack/10.0.5",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
@@ -3179,7 +3179,7 @@
         "build/Microsoft.NET.Sdk.WebAssembly.Pack.targets",
         "build/Wasm.web.config",
         "build/browser.runtimeconfig.template.json",
-        "microsoft.net.sdk.webassembly.pack.10.0.7.nupkg.sha512",
+        "microsoft.net.sdk.webassembly.pack.10.0.5.nupkg.sha512",
         "microsoft.net.sdk.webassembly.pack.nuspec",
         "tools/net10.0/Microsoft.NET.Sdk.WebAssembly.Pack.Tasks.dll",
         "tools/net10.0/Microsoft.NET.WebAssembly.Webcil.dll",
@@ -3197,45 +3197,37 @@
       "BlazorBlueprint.Primitives >= 3.4.0",
       "BlazorSortableList >= 2.1.2",
       "Blazored.Modal >= 7.3.1",
-      "Microsoft.AspNetCore.App.Internal.Assets >= 10.0.7",
+      "Microsoft.AspNetCore.App.Internal.Assets >= 10.0.5",
       "Microsoft.AspNetCore.Components.WebAssembly >= 10.0.1",
       "Microsoft.AspNetCore.Components.WebAssembly.Authentication >= 10.0.1",
-      "Microsoft.DotNet.HotReload.WebAssembly.Browser >= 10.0.203",
-      "Microsoft.NET.ILLink.Tasks >= 10.0.7",
-      "Microsoft.NET.Sdk.WebAssembly.Pack >= 10.0.7"
+      "Microsoft.DotNet.HotReload.WebAssembly.Browser >= 10.0.201",
+      "Microsoft.NET.ILLink.Tasks >= 10.0.5",
+      "Microsoft.NET.Sdk.WebAssembly.Pack >= 10.0.5"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\jorge\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/home/runner/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\jorge.garmilla\\Proyectos\\AntiaSoftware\\FrontEnds\\WebApp\\WebApp.Client\\WebApp.Client.csproj",
+      "projectUniqueName": "/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/WebApp.Client.csproj",
       "projectName": "WebApp.Client",
-      "projectPath": "C:\\jorge.garmilla\\Proyectos\\AntiaSoftware\\FrontEnds\\WebApp\\WebApp.Client\\WebApp.Client.csproj",
-      "packagesPath": "C:\\Users\\jorge\\.nuget\\packages\\",
-      "outputPath": "C:\\jorge.garmilla\\Proyectos\\AntiaSoftware\\FrontEnds\\WebApp\\WebApp.Client\\obj\\",
+      "projectPath": "/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/WebApp.Client.csproj",
+      "packagesPath": "/home/runner/.nuget/packages/",
+      "outputPath": "/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\jorge\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/home/runner/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net10.0": {
-          "framework": "net10.0",
           "targetAlias": "net10.0",
           "projectReferences": {}
         }
@@ -3254,7 +3246,6 @@
     },
     "frameworks": {
       "net10.0": {
-        "framework": "net10.0",
         "targetAlias": "net10.0",
         "dependencies": {
           "Blazilla": {
@@ -3288,7 +3279,7 @@
           "Microsoft.AspNetCore.App.Internal.Assets": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[10.0.7, )",
+            "version": "[10.0.5, )",
             "autoReferenced": true
           },
           "Microsoft.AspNetCore.Components.WebAssembly": {
@@ -3301,19 +3292,19 @@
           },
           "Microsoft.DotNet.HotReload.WebAssembly.Browser": {
             "target": "Package",
-            "version": "[10.0.203, )",
+            "version": "[10.0.201, )",
             "autoReferenced": true
           },
           "Microsoft.NET.ILLink.Tasks": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[10.0.7, )",
+            "version": "[10.0.5, )",
             "autoReferenced": true
           },
           "Microsoft.NET.Sdk.WebAssembly.Pack": {
             "suppressParent": "All",
             "target": "Package",
-            "version": "[10.0.7, )",
+            "version": "[10.0.5, )",
             "autoReferenced": true
           }
         },
@@ -3331,7 +3322,7 @@
         "downloadDependencies": [
           {
             "name": "Microsoft.NETCore.App.Runtime.Mono.browser-wasm",
-            "version": "[10.0.7, 10.0.7]"
+            "version": "[10.0.5, 10.0.5]"
           }
         ],
         "frameworkReferences": {
@@ -3339,7 +3330,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/10.0.201/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

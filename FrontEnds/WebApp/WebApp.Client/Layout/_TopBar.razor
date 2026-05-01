@@ -26,24 +26,6 @@
                 <NavLink href="/showcase/buttons" style="margin-left: 20px;" class="transition-colors hover:text-foreground/80 text-foreground/60" ActiveClass="text-foreground">
                     Showcase
                 </NavLink>
-
-                <div>
-
-                <AuthorizeView>
-                    <Authorized>
-                        <form action="Account/Logout" method="post">
-                            <AntiforgeryToken />
-                            <input type="hidden" name="ReturnUrl" value="@currentUrl" />
-                            <button type="submit" class="nav-link" style="background-color:red">
-                                <span class="bi bi-arrow-bar-left-nav-menu" aria-hidden="true"></span> Logout
-                            </button>
-                        </form>
-                    </Authorized>
-                    <NotAuthorized>
-                        no deberías ver esto aquí
-                    </NotAuthorized>
-                </AuthorizeView>
-                </div>
             </nav>
 
             <div class="flex flex-1 items-center justify-end space-x-2">
@@ -57,6 +39,33 @@
                         <LucideIcon Name="moon" Size="20" />
                     }
                 </BbButton>
+
+                <AuthorizeView>
+                    <Authorized>
+                        <BbPopover>
+                            <BbPopoverTrigger>
+                                <BbButton Variant="ButtonVariant.Ghost" Class="flex items-center gap-2 px-2">
+                                    <div class="flex h-8 w-8 items-center justify-center rounded-full bg-primary text-primary-foreground text-sm font-semibold select-none">
+                                        @GetUserInitials(context.User.Identity?.Name)
+                                    </div>
+                                    <span class="hidden sm:inline-block text-sm font-medium">
+                                        @(context.User.Identity?.Name ?? context.User.FindFirst("email")?.Value ?? "Usuario")
+                                    </span>
+                                </BbButton>
+                            </BbPopoverTrigger>
+                            <BbPopoverContent Align="PopoverAlign.End" Class="w-48 p-1">
+                                <form action="Account/Logout" method="post">
+                                    <AntiforgeryToken />
+                                    <input type="hidden" name="ReturnUrl" value="/Account/Login" />
+                                    <button type="submit" class="flex w-full items-center gap-2 rounded-sm px-2 py-1.5 text-sm hover:bg-accent hover:text-accent-foreground cursor-pointer">
+                                        <LucideIcon Name="log-out" Size="16" />
+                                        Logout
+                                    </button>
+                                </form>
+                            </BbPopoverContent>
+                        </BbPopover>
+                    </Authorized>
+                </AuthorizeView>
             </div>
 
         </div>
@@ -85,7 +94,16 @@
         isDarkMode = !isDarkMode;
     }
 
+    private static string GetUserInitials(string? name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            return "?";
 
+        var parts = name.Trim().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+        return parts.Length >= 2
+            ? $"{char.ToUpperInvariant(parts[0][0])}{char.ToUpperInvariant(parts[^1][0])}"
+            : char.ToUpperInvariant(name[0]).ToString();
+    }
 
 
 
