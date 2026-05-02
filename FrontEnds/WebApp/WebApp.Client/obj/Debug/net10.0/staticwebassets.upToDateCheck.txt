@@ -1,4 +1,0 @@
-wwwroot\appsettings.Development.json
-wwwroot\appsettings.json
-C:\jorge.garmilla\Proyectos\AntiaSoftware\FrontEnds\WebApp\WebApp.Client\wwwroot\appsettings.Development.json
-C:\jorge.garmilla\Proyectos\AntiaSoftware\FrontEnds\WebApp\WebApp.Client\wwwroot\appsettings.json
