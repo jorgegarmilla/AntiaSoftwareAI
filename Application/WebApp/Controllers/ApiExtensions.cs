@@ -36,11 +36,21 @@ namespace WebApp.Controllers
             var accountGroup = endpoints.MapGroup("/Account");
 
             accountGroup.MapPost("/Logout", async (
+             HttpContext httpContext,
              ClaimsPrincipal user,
              [FromServices] SignInManager<ApplicationUser> signInManager,
              [FromForm] string returnUrl) =>
             {
                 await signInManager.SignOutAsync();
+
+                // Delete the antiforgery cookie so the Login page always gets a fresh
+                // token+cookie pair after logout, preventing stale-cookie 400 errors.
+                foreach (var cookieName in httpContext.Request.Cookies.Keys
+                    .Where(k => k.StartsWith(".AspNetCore.Antiforgery")))
+                {
+                    httpContext.Response.Cookies.Delete(cookieName);
+                }
+
                 return TypedResults.LocalRedirect($"~/{returnUrl}");
             }).DisableAntiforgery();
 

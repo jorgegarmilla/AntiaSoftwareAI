@@ -30,7 +30,7 @@
                 <BbCardDescription>Enter your email below to login to your account</BbCardDescription>
             </BbCardHeader>
             <BbCardContent>
-                <StatusMessage Message="@errorMessage" />
+                <StatusMessage />
                 <div class="space-y-4">
                     <div class="space-y-2">
                         <BbLabel For="Input.Email" class="text-sm font-medium leading-none shrink-0 peer-aria-[invalid=true]:text-destructive">Email</BbLabel>
@@ -169,7 +169,7 @@
     <div class="row">
         <div class="col-lg-6">
             <section>
-                <StatusMessage Message="@errorMessage" />
+                <StatusMessage />
                 <EditForm EditContext="editContext" method="post" OnSubmit="LoginUser" FormName="login">
                     <DataAnnotationsValidator />
                     <h2>Use a local account to log in.</h2>
@@ -246,8 +246,6 @@
 
 
 
-
-    private string? errorMessage;
     private EditContext editContext = default!;
 
     [CascadingParameter]
@@ -282,7 +280,7 @@
 
         if (!string.IsNullOrEmpty(Input.Passkey?.Error))
         {
-            errorMessage = $"Error: {Input.Passkey.Error}";
+            RedirectManager.RedirectToWithStatus(NavigationManager.Uri, $"Error: {Input.Passkey.Error}", HttpContext);
             return;
         }
 
@@ -297,6 +295,9 @@
             // If doing a password sign-in, validate the form.
             if (!editContext.Validate())
             {
+                // PRG: redirect so the login page is always rendered via a fresh GET,
+                // keeping the antiforgery token and cookie in sync.
+                RedirectManager.RedirectToWithStatus(NavigationManager.Uri, "Error: Please enter your email and password.", HttpContext);
                 return;
             }
 
@@ -331,7 +332,9 @@
         }
         else
         {
-            errorMessage = "Error: Invalid login attempt.";
+            // PRG: redirect so the login page is always rendered via a fresh GET,
+            // keeping the antiforgery token and cookie in sync.
+            RedirectManager.RedirectToWithStatus(NavigationManager.Uri, "Error: Invalid login attempt.", HttpContext);
         }
     }
 

@@ -1,0 +1,185 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.VerifyReferenceTrimCompatibility = 
+build_property.VerifyReferenceAotCompatibility = 
+build_property.TargetFramework = net10.0
+build_property.TargetFrameworkIdentifier = .NETCoreApp
+build_property.TargetFrameworkVersion = v10.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = WebApp.Client
+build_property.RootNamespace = WebApp.Client
+build_property.ProjectDir = /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 9.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client
+build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 10.0
+build_property.EnableCodeStyleSeverity = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/BusinessComponents/_GenericRenderFragment.razor]
+build_metadata.AdditionalFiles.TargetPath = QnVzaW5lc3NDb21wb25lbnRzL19HZW5lcmljUmVuZGVyRnJhZ21lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/BusinessComponents/_Modal.razor]
+build_metadata.AdditionalFiles.TargetPath = QnVzaW5lc3NDb21wb25lbnRzL19Nb2RhbC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/BusinessComponents/_NonGenericRenderFragment.razor]
+build_metadata.AdditionalFiles.TargetPath = QnVzaW5lc3NDb21wb25lbnRzL19Ob25HZW5lcmljUmVuZGVyRnJhZ21lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/BusinessComponents/_Rol.razor]
+build_metadata.AdditionalFiles.TargetPath = QnVzaW5lc3NDb21wb25lbnRzL19Sb2wucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Components/_InputDoubleFormatted.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9fSW5wdXREb3VibGVGb3JtYXR0ZWQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Components/_InputTextTriggerBindingOnInput.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9fSW5wdXRUZXh0VHJpZ2dlckJpbmRpbmdPbklucHV0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Components/_PageTitle.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9fUGFnZVRpdGxlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Components/_SelectList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9fU2VsZWN0TGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Components/_SelectSearchList.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50cy9fU2VsZWN0U2VhcmNoTGlzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Layout/LeftMenuLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L0xlZnRNZW51TGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Layout/_Footer.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L19Gb290ZXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Layout/_TopBar.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L19Ub3BCYXIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/AttributeSplatting.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvQXR0cmlidXRlU3BsYXR0aW5nLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/Environment.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvRW52aXJvbm1lbnQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/Form.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvRm9ybS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvSG9tZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/Initializator.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvSW5pdGlhbGl6YXRvci5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/InitializatorTwo.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvSW5pdGlhbGl6YXRvclR3by5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/Jobs.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvSm9icy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/Modal.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/PageComponentTree.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvUGFnZUNvbXBvbmVudFRyZWUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/RenderFragmentBasic.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvUmVuZGVyRnJhZ21lbnRCYXNpYy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/RenderFragmentGeneric.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvUmVuZGVyRnJhZ21lbnRHZW5lcmljLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/RenderFragmentNonGeneric.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvUmVuZGVyRnJhZ21lbnROb25HZW5lcmljLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/Test.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvVGVzdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Showcase/Alerts.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hvd2Nhc2UvQWxlcnRzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Showcase/Buttons.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hvd2Nhc2UvQnV0dG9ucy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Showcase/Cards.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hvd2Nhc2UvQ2FyZHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Showcase/DataDisplay.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hvd2Nhc2UvRGF0YURpc3BsYXkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Showcase/Dialogs.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hvd2Nhc2UvRGlhbG9ncy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Showcase/Forms.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hvd2Nhc2UvRm9ybXMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Showcase/Navigation.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hvd2Nhc2UvTmF2aWdhdGlvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Showcase/_ShowcaseLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvU2hvd2Nhc2UvX1Nob3djYXNlTGF5b3V0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Routes.razor]
+build_metadata.AdditionalFiles.TargetPath = Um91dGVzLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/BusinessComponents/_CSSsample.razor]
+build_metadata.AdditionalFiles.TargetPath = QnVzaW5lc3NDb21wb25lbnRzL19DU1NzYW1wbGUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ouasgqk295
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0L01haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-o1e73j8fwr
+
+[/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/Pages/Antia/CSS.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXMvQW50aWEvQ1NTLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-8954c2i7dp

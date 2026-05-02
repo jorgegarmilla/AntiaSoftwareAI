@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "znbKFuwlzCw=",
+  "dgSpecHash": "q42j5V6lx8E=",
   "success": true,
   "projectFilePath": "/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/WebApp.Client.csproj",
   "expectedPackageFiles": [
@@ -31,7 +31,6 @@
     "/home/runner/.nuget/packages/microsoft.aspnetcore.http.features/2.2.0/microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.aspnetcore.metadata/10.0.2/microsoft.aspnetcore.metadata.10.0.2.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.aspnetcore.webutilities/2.2.0/microsoft.aspnetcore.webutilities.2.2.0.nupkg.sha512",
-    "/home/runner/.nuget/packages/microsoft.dotnet.hotreload.webassembly.browser/10.0.201/microsoft.dotnet.hotreload.webassembly.browser.10.0.201.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.extensions.configuration/10.0.2/microsoft.extensions.configuration.10.0.2.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.extensions.configuration.abstractions/10.0.2/microsoft.extensions.configuration.abstractions.10.0.2.nupkg.sha512",
     "/home/runner/.nuget/packages/microsoft.extensions.configuration.binder/10.0.2/microsoft.extensions.configuration.binder.10.0.2.nupkg.sha512",
