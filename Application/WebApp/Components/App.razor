@@ -36,7 +36,10 @@
         window.FloatingUIDOM = FloatingUI;
     </script>
 
-    <script src="_framework/blazor.web.js"></script>
+    @if (PageRenderMode != null)
+    {
+        <script src="_framework/blazor.web.js"></script>
+    }
     <script>
         window.toggleDarkMode = () => document.documentElement.classList.toggle('dark');
         window.isDarkModeEnabled = () => document.documentElement.classList.contains('dark');

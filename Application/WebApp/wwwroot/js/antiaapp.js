@@ -24,10 +24,11 @@ function hideLoader() {
         return;
     }
 
+    // Hide the loader for any SSR-rendered content (app container is populated on the server).
+    // For WASM pages (no prerendering) the container is empty at this point, so the loader
+    // stays visible until WASM calls deleteElementById after it finishes loading.
     if (app.innerHTML && app.innerHTML.trim().length > 0) {
-        if (app.innerHTML.indexOf('/Account/Login') > -1) {
-            loader.style.display = 'none';
-        }
+        loader.style.display = 'none';
     }
 }
 
