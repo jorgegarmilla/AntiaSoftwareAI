@@ -228,8 +228,6 @@
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/icudt_CJK.tjcz0u77k5.dat
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/icudt_EFIGS.tptq2av103.dat
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/icudt_no_CJK.lfu7j35m59.dat
-/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/WebApp.Client.ece5lhpb7s.wasm
-/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/WebApp.Client.kbsjvr6gng.pdb
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/dotnet.js
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/blazor.webassembly.js.gz
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/AngleSharp.2coidq2lqm.wasm.gz
@@ -460,8 +458,6 @@
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/icudt_CJK.tjcz0u77k5.dat.gz
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/icudt_EFIGS.tptq2av103.dat.gz
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/icudt_no_CJK.lfu7j35m59.dat.gz
-/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/WebApp.Client.ece5lhpb7s.wasm.gz
-/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/WebApp.Client.kbsjvr6gng.pdb.gz
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/dotnet.js.gz
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/WebApp.Client.staticwebassets.runtime.json
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/WebApp.Client.staticwebassets.endpoints.json
@@ -1171,9 +1167,6 @@
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/compressed/w66ndzz7gq-{0}-tjcz0u77k5-tjcz0u77k5.gz
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/compressed/0blu9rvt9p-{0}-tptq2av103-tptq2av103.gz
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/compressed/tjixazq1kt-{0}-lfu7j35m59-lfu7j35m59.gz
-/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/compressed/ncjkeriejl-{0}-ece5lhpb7s-ece5lhpb7s.gz
-/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/compressed/r1nh13fgvx-{0}-kbsjvr6gng-kbsjvr6gng.gz
-/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/compressed/qhz7g496ah-{0}-c7kwgdrawz-c7kwgdrawz.gz
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/staticwebassets.build.json
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/staticwebassets.build.json.cache
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/staticwebassets.development.json
@@ -1184,3 +1177,10 @@
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/refint/WebApp.Client.dll
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/WebApp.Client.pdb
 /home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/ref/WebApp.Client.dll
+/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/WebApp.Client.tckfzywtvq.wasm
+/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/WebApp.Client.h6wjyejkds.pdb
+/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/WebApp.Client.tckfzywtvq.wasm.gz
+/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/bin/Release/net10.0/wwwroot/_framework/WebApp.Client.h6wjyejkds.pdb.gz
+/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/compressed/ncjkeriejl-{0}-tckfzywtvq-tckfzywtvq.gz
+/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/compressed/r1nh13fgvx-{0}-h6wjyejkds-h6wjyejkds.gz
+/home/runner/work/AntiaSoftwareAI/AntiaSoftwareAI/FrontEnds/WebApp/WebApp.Client/obj/Release/net10.0/compressed/qhz7g496ah-{0}-x923k6u5dv-x923k6u5dv.gz
