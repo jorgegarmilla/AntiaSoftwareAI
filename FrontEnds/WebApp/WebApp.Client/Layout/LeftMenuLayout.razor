@@ -46,61 +46,61 @@
 
 
 
-<div class="container py-6">
-    <div class="flex flex-col lg:flex-row gap-8">
+<div class="container py-4">
+    <div class="d-flex flex-column flex-lg-row gap-4">
         <!-- Sidebar Navigation -->
-        <aside class="lg:w-64 shrink-0">
+        <aside class="left-menu-sidebar">
            
-            <nav class="sticky top-20 space-y-1">
-                <h4 class="font-semibold mb-3">Antía</h4>
+            <nav class="left-menu-nav">
+                <h4 class="fw-semibold mb-3">Antía</h4>
 
 
-                <NavLink href="/antia/test" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                <NavLink href="/antia/test" class="d-flex align-items-center gap-2 rounded px-3 py-2 small text-decoration-none text-body-secondary" ActiveClass="bg-primary-subtle text-primary">
                     <LucideIcon Name="mouse-pointer-click" Size="16" />
                     TEST
                 </NavLink>
 
-                <NavLink href="/antia/environment" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                <NavLink href="/antia/environment" class="d-flex align-items-center gap-2 rounded px-3 py-2 small text-decoration-none text-body-secondary" ActiveClass="bg-primary-subtle text-primary">
                     <LucideIcon Name="mouse-pointer-click" Size="16" />
                     Environment and cascade parameter
                 </NavLink>
-                <NavLink href="/initializator" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                <NavLink href="/initializator" class="d-flex align-items-center gap-2 rounded px-3 py-2 small text-decoration-none text-body-secondary" ActiveClass="bg-primary-subtle text-primary">
                     <LucideIcon Name="mouse-pointer-click" Size="16" />
                     Initializator (api call)
                 </NavLink>
-                <NavLink href="/initializatorTwo" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                <NavLink href="/initializatorTwo" class="d-flex align-items-center gap-2 rounded px-3 py-2 small text-decoration-none text-body-secondary" ActiveClass="bg-primary-subtle text-primary">
                     <LucideIcon Name="mouse-pointer-click" Size="16" />
                     Initializator #2
                 </NavLink>
-                <NavLink href="/pagecomponenttree" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                <NavLink href="/pagecomponenttree" class="d-flex align-items-center gap-2 rounded px-3 py-2 small text-decoration-none text-body-secondary" ActiveClass="bg-primary-subtle text-primary">
                     <LucideIcon Name="mouse-pointer-click" Size="16" />
                     Page Component Tree
                 </NavLink>
-                <NavLink href="/renderfragmentbasic" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                <NavLink href="/renderfragmentbasic" class="d-flex align-items-center gap-2 rounded px-3 py-2 small text-decoration-none text-body-secondary" ActiveClass="bg-primary-subtle text-primary">
                     <LucideIcon Name="mouse-pointer-click" Size="16" />
                     Render Fragment Basic
                 </NavLink>
-                <NavLink href="/renderfragmentNonGeneric" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                <NavLink href="/renderfragmentNonGeneric" class="d-flex align-items-center gap-2 rounded px-3 py-2 small text-decoration-none text-body-secondary" ActiveClass="bg-primary-subtle text-primary">
                     <LucideIcon Name="mouse-pointer-click" Size="16" />
                     Render Fragment Non Generic
                 </NavLink>
-                <NavLink href="/renderfragmentGeneric" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                <NavLink href="/renderfragmentGeneric" class="d-flex align-items-center gap-2 rounded px-3 py-2 small text-decoration-none text-body-secondary" ActiveClass="bg-primary-subtle text-primary">
                     <LucideIcon Name="mouse-pointer-click" Size="16" />
                     Render Fragment Generic
                 </NavLink>
-                <NavLink href="/cssPage" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                <NavLink href="/cssPage" class="d-flex align-items-center gap-2 rounded px-3 py-2 small text-decoration-none text-body-secondary" ActiveClass="bg-primary-subtle text-primary">
                     <LucideIcon Name="mouse-pointer-click" Size="16" />
                     CSS Sample
                 </NavLink>
-                <NavLink href="/AttributeSplatting" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                <NavLink href="/AttributeSplatting" class="d-flex align-items-center gap-2 rounded px-3 py-2 small text-decoration-none text-body-secondary" ActiveClass="bg-primary-subtle text-primary">
                     <LucideIcon Name="mouse-pointer-click" Size="16" />
                     Attribute Splatting
                 </NavLink>
-                <NavLink href="/modal" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                <NavLink href="/modal" class="d-flex align-items-center gap-2 rounded px-3 py-2 small text-decoration-none text-body-secondary" ActiveClass="bg-primary-subtle text-primary">
                     <LucideIcon Name="mouse-pointer-click" Size="16" />
                     initializator
                 </NavLink>
-                <NavLink href="/initializator" class="flex items-center gap-2 rounded-md px-3 py-2 text-sm hover:bg-accent" ActiveClass="bg-accent">
+                <NavLink href="/initializator" class="d-flex align-items-center gap-2 rounded px-3 py-2 small text-decoration-none text-body-secondary" ActiveClass="bg-primary-subtle text-primary">
                     <LucideIcon Name="mouse-pointer-click" Size="16" />
                     Modal
                 </NavLink>
@@ -108,7 +108,7 @@
         </aside>
 
         <!-- Main Content -->
-        <main class="flex-1 min-w-0">
+        <main class="flex-grow-1 overflow-hidden">
             @Body
         </main>
     </div>

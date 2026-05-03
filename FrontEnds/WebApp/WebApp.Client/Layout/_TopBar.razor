@@ -2,28 +2,26 @@
 @implements IDisposable
 @inherits AntiaComponentBase
 
-<header class="sticky top-0 z-50 w-full border-b bg-background">
-    <div class="container flex h-14 items-center">
-        <div class="container flex h-14 items-center">
-            
-            <a href="/" class="logo-header d-flex align-items-center">
-               
-                <span class="d-none d-lg-block"></span>
+<header class="sticky-top border-bottom bg-body shadow-sm">
+    <div class="container-fluid px-3">
+        <div class="d-flex align-items-center" style="height: 3.5rem;">
+
+            <a href="/" class="logo-header d-flex align-items-center me-4 text-decoration-none">
+               <span class="d-none d-lg-block"></span>
             </a>
 
-
-            <div class="mr-4 flex">
-                <a href="/" class="mr-6 flex items-center space-x-2">
+            <div class="me-4 d-flex">
+                <a href="/" class="me-3 d-flex align-items-center gap-2 text-decoration-none">
                     <img src="images/sputnik.png" alt="" style="padding-top:20px">
-                    <span class="font-bold">Antia App</span>
+                    <span class="fw-bold">Antia App</span>
                 </a>
             </div>
 
-            <nav class="flex items-center space-x-6 text-sm font-medium">
-                <NavLink href="/" Match="NavLinkMatch.All" style="" class="transition-colors hover:text-foreground/80 text-foreground/60" ActiveClass="text-foreground">
+            <nav class="nav d-flex align-items-center gap-1 fs-6 fw-medium">
+                <NavLink href="/" Match="NavLinkMatch.All" class="nav-link px-2 text-body-secondary" ActiveClass="text-body fw-semibold">
                     Antia
                 </NavLink>
-                <NavLink href="/showcase/buttons" style="margin-left: 20px;" class="transition-colors hover:text-foreground/80 text-foreground/60" ActiveClass="text-foreground">
+                <NavLink href="/showcase/buttons" class="nav-link px-2 text-body-secondary" ActiveClass="text-body fw-semibold">
                     Showcase
                 </NavLink>
 
@@ -46,7 +44,7 @@
                 </div>
             </nav>
 
-            <div class="flex flex-1 items-center justify-end space-x-2">
+            <div class="d-flex flex-grow-1 align-items-center justify-content-end gap-2">
                 <BbButton Variant="ButtonVariant.Ghost" Size="ButtonSize.Icon" @onclick="ToggleDarkMode">
                     @if (isDarkMode)
                     {

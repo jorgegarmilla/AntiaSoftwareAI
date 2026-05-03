@@ -1,3 +1,13 @@
+.left-menu-sidebar {
+    min-width: 16rem;
+    max-width: 16rem;
+}
+
+.left-menu-nav {
+    position: sticky;
+    top: 5rem;
+}
+
 .page {
     position: relative;
     display: flex;

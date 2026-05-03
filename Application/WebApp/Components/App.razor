@@ -9,12 +9,15 @@
     <!-- Blazor Styles -->
     <link href="WebApp.styles.css" rel="stylesheet" />
 
-    <!-- App Styles  -->
-    <link href="css/antia.css" rel="stylesheet" />
-    <link href="css/themes/ocean.css" rel="stylesheet" />     @* storm.css, default.css *@
-    
-    <!-- Vendor Styles -->
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- BlazorBlueprint & Bootstrap bridge theme -->
     <link href="_content/BlazorBlueprint.Components/blazorblueprint.css" rel="stylesheet" />
+    <link href="css/themes/blazorblueprint-bootstrap.css" rel="stylesheet" />   @* ocean.css, storm.css, default.css *@
+
+    <!-- App Styles -->
+    <link href="css/antia.css" rel="stylesheet" />
     <link href="css/app.css" rel="stylesheet" />
     
     <HeadOutlet @rendermode="PageRenderMode" />
@@ -42,8 +45,11 @@
         window.isDarkModeEnabled = () => document.documentElement.classList.contains('dark');
     </script>
 
+    <!-- Bootstrap JS (includes Popper) -->
+    <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+
     <!-- App Scripts -->
-    <script src="js/antiaapp.js"></script> 
+    <script src="js/antiaapp.js"></script>
 
 </body>
 
